@@ -1,0 +1,2107 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Goodnight Bangaram ✨ Bedtime Treasury</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Patrick+Hand&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Canvas Confetti library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <style>
+    /* -------------------------------------------------------------
+       1. CORE RESET & MIDNIGHT THEME PALETTE (100% PURE CSS)
+       ------------------------------------------------------------- */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg-midnight: #070B18;
+      --bg-card: #0F172E;
+      --bg-card-hover: #162142;
+      --bg-modal: #FFFDF8;
+      --gold-primary: #FBBF24;
+      --gold-deep: #D97706;
+      --gold-glow: rgba(251, 191, 36, 0.28);
+      --gold-border: rgba(251, 191, 36, 0.25);
+      --cream-light: #FEF3C7;
+      --cream-dim: #D1D5DB;
+      --peacock-blue: #38BDF8;
+      --lotus-pink: #FDA4AF;
+      --bangaram-rose: #FB7185;
+      --font-serif: 'Fraunces', serif;
+      --font-display: 'Cinzel', serif;
+      --font-hand: 'Patrick Hand', cursive;
+      --font-body: 'Quicksand', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-midnight);
+      color: #FFFDF7;
+      font-family: var(--font-body);
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      position: relative;
+    }
+
+    /* Ambient Night Sky Canvas */
+    #nightSkyCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .relative-container {
+      position: relative;
+      z-index: 10;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* -------------------------------------------------------------
+       2. TOP BAR & NAVIGATION
+       ------------------------------------------------------------- */
+    header {
+      padding-top: 24px;
+      padding-bottom: 12px;
+    }
+
+    .top-navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      background: rgba(15, 23, 46, 0.78);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      padding: 12px 24px;
+      border-radius: 999px;
+      border: 1px solid var(--gold-border);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .moon-emblem {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(251, 191, 36, 0.15);
+      border: 1.5px solid var(--gold-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 0 15px var(--gold-glow);
+      animation: gentleFloat 4s ease-in-out infinite;
+    }
+
+    @keyframes gentleFloat {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-4px) rotate(3deg); }
+    }
+
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--cream-light);
+      letter-spacing: -0.01em;
+    }
+
+    .brand-sub {
+      font-family: var(--font-hand);
+      font-size: 13.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+      display: block;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-lullaby {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: rgba(23, 34, 68, 0.85);
+      color: var(--cream-light);
+      font-family: var(--font-hand);
+      font-size: 17px;
+      border: 1px solid var(--gold-border);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .btn-lullaby:hover {
+      background: rgba(37, 53, 100, 1);
+      border-color: var(--gold-primary);
+      transform: translateY(-1px);
+    }
+
+    .btn-birthday {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 20px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+      color: #070B18;
+      font-family: var(--font-hand);
+      font-size: 18px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(245, 158, 11, 0.35);
+      transition: all 0.25s ease;
+    }
+
+    .btn-birthday:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
+    }
+
+    /* -------------------------------------------------------------
+       3. HERO HEADER
+       ------------------------------------------------------------- */
+    .hero-section {
+      text-align: center;
+      padding: 36px 0 24px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 20px;
+      border-radius: 999px;
+      background: rgba(251, 191, 36, 0.12);
+      border: 1px solid var(--gold-border);
+      color: var(--gold-primary);
+      font-family: var(--font-hand);
+      font-size: 19px;
+      margin-bottom: 14px;
+    }
+
+    .hero-badge strong {
+      color: var(--bangaram-rose);
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 700;
+      color: var(--cream-light);
+      line-height: 1.15;
+      margin-bottom: 12px;
+      text-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #FFFDF8 0%, #FBBF24 50%, #FB7185 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-quote {
+      font-family: var(--font-hand);
+      font-size: clamp(20px, 3vw, 25px);
+      color: rgba(254, 243, 199, 0.9);
+      max-width: 720px;
+      margin: 0 auto 28px;
+      line-height: 1.4;
+    }
+
+    /* Search Input */
+    .search-wrapper {
+      max-width: 480px;
+      margin: 0 auto 28px;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 13px 20px 13px 48px;
+      border-radius: 999px;
+      background: rgba(15, 23, 46, 0.85);
+      border: 1px solid var(--gold-border);
+      color: #FFFDF7;
+      font-family: var(--font-body);
+      font-size: 14.5px;
+      outline: none;
+      transition: all 0.25s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 18px var(--gold-glow);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 16px;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    /* Bookshelf Filter Tabs */
+    .shelf-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+
+    .shelf-btn {
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-family: var(--font-hand);
+      font-size: 18px;
+      color: var(--cream-light);
+      background: rgba(23, 34, 68, 0.7);
+      border: 1px solid var(--gold-border);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .shelf-btn:hover {
+      background: rgba(37, 53, 100, 0.9);
+      border-color: var(--gold-primary);
+    }
+
+    .shelf-btn.active {
+      background: var(--gold-primary);
+      color: #070B18;
+      font-weight: 700;
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 16px var(--gold-glow);
+    }
+
+    /* Shelf Header Bar */
+    .shelf-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--gold-border);
+      padding-bottom: 14px;
+      margin-bottom: 28px;
+    }
+
+    .shelf-header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .shelf-header-title {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--cream-light);
+    }
+
+    .shelf-header-sub {
+      font-family: var(--font-hand);
+      font-size: 18px;
+      color: var(--gold-primary);
+    }
+
+    .story-counter-tag {
+      font-family: var(--font-hand);
+      font-size: 18px;
+      color: var(--gold-primary);
+    }
+
+    /* -------------------------------------------------------------
+       4. STORYBOOK CARDS GRID
+       ------------------------------------------------------------- */
+    .stories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+
+    .story-card {
+      background: linear-gradient(180deg, #131C38 0%, #0D1429 100%);
+      border: 1px solid var(--gold-border);
+      border-radius: 24px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .story-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 24px;
+      padding: 1px;
+      background: linear-gradient(180deg, rgba(251, 191, 36, 0.4) 0%, transparent 60%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .story-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(251, 191, 36, 0.6);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 20px var(--gold-glow);
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(251, 191, 36, 0.15);
+    }
+
+    .card-category {
+      font-family: var(--font-hand);
+      font-size: 16px;
+      color: var(--gold-primary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .card-badge {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: rgba(23, 34, 68, 0.8);
+      color: rgba(254, 243, 199, 0.85);
+      border: 1px solid rgba(251, 191, 36, 0.2);
+    }
+
+    .card-title {
+      font-family: var(--font-serif);
+      font-size: 21px;
+      font-weight: 700;
+      color: var(--cream-light);
+      line-height: 1.3;
+      margin-bottom: 6px;
+      transition: color 0.25s ease;
+    }
+
+    .story-card:hover .card-title {
+      color: var(--gold-primary);
+    }
+
+    .card-subtitle {
+      font-family: var(--font-hand);
+      font-size: 17px;
+      color: var(--gold-primary);
+      margin-bottom: 12px;
+      opacity: 0.9;
+    }
+
+    .card-preview {
+      font-size: 13.5px;
+      color: rgba(254, 243, 199, 0.75);
+      line-height: 1.6;
+      margin-bottom: 20px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 14px;
+      border-top: 1px solid rgba(251, 191, 36, 0.12);
+    }
+
+    .card-moral {
+      font-family: var(--font-hand);
+      font-size: 15px;
+      color: rgba(254, 243, 199, 0.7);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 180px;
+    }
+
+    .card-action {
+      font-family: var(--font-hand);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gold-primary);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* -------------------------------------------------------------
+       5. MODALS (COZY PARCHMENT READER & BIRTHDAY LETTER)
+       ------------------------------------------------------------- */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(5, 8, 18, 0.88);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .reader-modal-box {
+      background: #FFFDF8;
+      color: #2D1E12;
+      width: 100%;
+      max-width: 740px;
+      border-radius: 28px;
+      padding: 36px 32px 28px;
+      border: 4px solid #F59E0B;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65), 0 0 35px rgba(245, 158, 11, 0.25);
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+      transform: translateY(20px) scale(0.97);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .modal-overlay.active .reader-modal-box,
+    .modal-overlay.active .letter-modal-box {
+      transform: translateY(0) scale(1);
+    }
+
+    .btn-close-modal {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(45, 30, 18, 0.08);
+      color: #2D1E12;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .btn-close-modal:hover {
+      background: rgba(45, 30, 18, 0.16);
+      transform: scale(1.08);
+    }
+
+    .reader-header {
+      text-align: center;
+      border-bottom: 2px dashed #E5D5B8;
+      padding-bottom: 18px;
+      margin-bottom: 20px;
+    }
+
+    .reader-tag {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 999px;
+      background: #FEF3C7;
+      color: #78350F;
+      font-family: var(--font-hand);
+      font-size: 17px;
+      font-weight: 700;
+      border: 1px solid #FDE68A;
+      margin-bottom: 8px;
+    }
+
+    .reader-title {
+      font-family: var(--font-serif);
+      font-size: clamp(24px, 4vw, 32px);
+      font-weight: 800;
+      color: #26160B;
+      line-height: 1.25;
+      margin-bottom: 4px;
+    }
+
+    .reader-subtitle {
+      font-family: var(--font-hand);
+      font-size: 20px;
+      color: #92400E;
+    }
+
+    .tts-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #FFFBEB;
+      border: 1px solid #FDE68A;
+      border-radius: 16px;
+      padding: 10px 18px;
+      margin-bottom: 20px;
+    }
+
+    .tts-label {
+      font-family: var(--font-hand);
+      font-size: 20px;
+      font-weight: 700;
+      color: #92400E;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-tts {
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: #F59E0B;
+      color: #070B18;
+      font-family: var(--font-hand);
+      font-size: 17px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 8px rgba(245, 158, 11, 0.35);
+      transition: all 0.2s ease;
+    }
+
+    .btn-tts:hover {
+      background: #D97706;
+      transform: translateY(-1px);
+    }
+
+    .reader-quote-box {
+      background: #FEF3C7;
+      border-left: 4px solid #F59E0B;
+      border-radius: 16px;
+      padding: 16px 20px;
+      margin-bottom: 22px;
+    }
+
+    .reader-quote {
+      font-family: var(--font-hand);
+      font-size: 22px;
+      font-weight: 700;
+      color: #451A03;
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+
+    .reader-moral {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #92400E;
+    }
+
+    .reader-body {
+      font-size: 15.5px;
+      line-height: 1.85;
+      color: #382515;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      font-weight: 500;
+    }
+
+    .reader-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 2px dashed #E5D5B8;
+      padding-top: 18px;
+      margin-top: 26px;
+    }
+
+    .btn-nav-story {
+      background: none;
+      border: none;
+      font-family: var(--font-hand);
+      font-size: 20px;
+      font-weight: 700;
+      color: #92400E;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    .btn-nav-story:hover {
+      color: #D97706;
+    }
+
+    .btn-done-reading {
+      padding: 8px 24px;
+      border-radius: 999px;
+      background: #2D1E12;
+      color: #FFFDF8;
+      font-family: var(--font-hand);
+      font-size: 20px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-done-reading:hover {
+      background: #000;
+      transform: translateY(-1px);
+    }
+
+    /* -------------------------------------------------------------
+       6. BIRTHDAY LOVE LETTER MODAL
+       ------------------------------------------------------------- */
+    .letter-modal-box {
+      background: #0C1224;
+      color: #FFFDF7;
+      width: 100%;
+      max-width: 560px;
+      border-radius: 28px;
+      padding: 34px 28px;
+      border: 2px solid var(--gold-primary);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75), 0 0 35px var(--gold-glow);
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+      transform: translateY(20px) scale(0.97);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      text-align: center;
+    }
+
+    .letter-star-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: rgba(251, 191, 36, 0.15);
+      border: 2px solid var(--gold-primary);
+      font-size: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px;
+      box-shadow: 0 0 16px var(--gold-glow);
+    }
+
+    .letter-title {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--cream-light);
+      margin-bottom: 6px;
+    }
+
+    .letter-subtitle {
+      font-family: var(--font-hand);
+      font-size: 17px;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 18px;
+    }
+
+    .letter-parchment {
+      background: rgba(23, 34, 68, 0.6);
+      border: 1px solid var(--gold-border);
+      border-radius: 18px;
+      padding: 22px;
+      text-align: left;
+      font-size: 14.5px;
+      line-height: 1.75;
+      color: rgba(254, 243, 199, 0.92);
+      margin-bottom: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    .letter-greeting {
+      font-family: var(--font-hand);
+      font-size: 25px;
+      font-weight: 700;
+      color: var(--gold-primary);
+    }
+
+    .letter-wish-box {
+      background: rgba(15, 23, 46, 0.6);
+      border: 1.5px dashed var(--gold-border);
+      border-radius: 18px;
+      padding: 18px;
+      margin-bottom: 20px;
+    }
+
+    .wishing-star {
+      font-size: 46px;
+      cursor: pointer;
+      display: inline-block;
+      transition: transform 0.25s ease;
+      user-select: none;
+    }
+
+    .wishing-star:hover {
+      transform: scale(1.2) rotate(15deg);
+    }
+
+    .wishing-status {
+      font-family: var(--font-hand);
+      font-size: 19px;
+      color: var(--cream-light);
+      margin-top: 6px;
+    }
+
+    /* -------------------------------------------------------------
+       7. FOOTER
+       ------------------------------------------------------------- */
+    footer {
+      border-top: 1px solid rgba(251, 191, 36, 0.15);
+      padding: 32px 0;
+      margin-top: 40px;
+      text-align: center;
+      font-size: 13.5px;
+      color: rgba(254, 243, 199, 0.65);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-note {
+      font-family: var(--font-hand);
+      font-size: 21px;
+      color: var(--gold-primary);
+    }
+
+    .footer-note strong {
+      color: var(--bangaram-rose);
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #070B18;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1F2D54;
+      border-radius: 999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--gold-primary);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Twinkling Canvas -->
+  <canvas id="nightSkyCanvas"></canvas>
+
+  <div class="relative-container">
+    
+    <!-- Top Nightstand Navigation -->
+    <header>
+      <div class="top-navbar">
+        <div class="brand-wrap">
+          <div class="moon-emblem">🌙</div>
+          <div>
+            <span class="brand-sub">Bedtime Treasury</span>
+            <h1 class="brand-title">Goodnight Bangaram</h1>
+          </div>
+        </div>
+
+        <div class="nav-actions">
+          <button id="lullabyToggleBtn" class="btn-lullaby" onclick="toggleBedtimeLullaby()" title="Play relaxing flute lullaby">
+            <span id="lullabyIcon">🪈</span>
+            <span id="lullabyLabel">Flute Lullaby</span>
+          </button>
+          
+          <button class="btn-birthday" onclick="openLetterModal()">
+            <span>💌</span>
+            <span>Birthday Note</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Bedtime Treasury Intro -->
+    <section class="hero-section">
+      <div class="hero-badge">
+        <span>✨ Sweet dreams, <strong>Bangaram</strong> • Cozy up under your warm blanket ✨</span>
+      </div>
+
+      <h2 class="hero-title">
+        Goodnight <span>Bangaram</span>
+      </h2>
+
+      <p class="hero-quote">
+        “Little Krishna’s sweet butter dreams, forest fables, and midnight court wit to tuck you into peaceful sleep tonight, my gold.”
+      </p>
+
+      <!-- Search Bar -->
+      <div class="search-wrapper">
+        <span class="search-icon">🔍</span>
+        <input 
+          type="text" 
+          id="storySearchInput" 
+          class="search-input"
+          placeholder="Search for Kanha, Birbal, Tenali Raman, rabbit, turtle, or king..."
+          oninput="handleSearch(this.value)"
+        />
+      </div>
+
+      <!-- Bookshelf Tabs with dynamic counts -->
+      <nav class="shelf-nav">
+        <button id="shelfBtnAll" class="shelf-btn active" onclick="switchShelf('all')">
+          All Tales (<span id="countAll">35</span>)
+        </button>
+        <button id="shelfBtnKrishna" class="shelf-btn" onclick="switchShelf('krishna')">
+          🦚 Little Krishna (<span id="countKrishna">11</span>)
+        </button>
+        <button id="shelfBtnPanchatantra" class="shelf-btn" onclick="switchShelf('panchatantra')">
+          🐰 Panchatantra (<span id="countPanchatantra">8</span>)
+        </button>
+        <button id="shelfBtnAck" class="shelf-btn" onclick="switchShelf('ack')">
+          👑 Amar Chitra Katha (<span id="countAck">8</span>)
+        </button>
+        <button id="shelfBtnTenali" class="shelf-btn" onclick="switchShelf('tenali')">
+          🐘 Tenali Raman (<span id="countTenali">4</span>)
+        </button>
+        <button id="shelfBtnBirbal" class="shelf-btn" onclick="switchShelf('birbal')">
+          🕯️ Akbar & Birbal (<span id="countBirbal">4</span>)
+        </button>
+      </nav>
+
+      <!-- Shelf Status Header -->
+      <div class="shelf-header">
+        <div class="shelf-header-left">
+          <span style="font-size: 28px;" id="shelfIcon">📖</span>
+          <div style="text-align: left;">
+            <h3 class="shelf-header-title" id="shelfTitle">The Entire Bedtime Collection</h3>
+            <p class="shelf-header-sub" id="shelfDesc">Tap any story below to open the cozy reading lamp book with voice narrator!</p>
+          </div>
+        </div>
+        <span class="story-counter-tag" id="shelfCounterLabel">35 bedtime stories ready for Bangaram</span>
+      </div>
+    </section>
+
+    <!-- Story Cards Grid -->
+    <main>
+      <div id="storiesGrid" class="stories-grid">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <!-- Empty Search Fallback -->
+      <div id="emptySearchNotice" style="display: none; text-align: center; padding: 60px 20px;">
+        <div style="font-size: 48px; margin-bottom: 10px;">🌙</div>
+        <h4 style="font-family: var(--font-serif); font-size: 24px; color: var(--cream-light); margin-bottom: 6px;">
+          No bedtime stories found with that title.
+        </h4>
+        <p style="font-family: var(--font-hand); font-size: 19px; color: var(--gold-primary); margin-bottom: 18px;">
+          Try searching for butter, khichdi, Raman, Birbal, turtle, or rabbit!
+        </p>
+        <button class="btn-lullaby" onclick="clearSearch()" style="background: var(--gold-primary); color: #070B18; font-weight: 700;">
+          Show All Bedtime Stories ✨
+        </button>
+      </div>
+    </main>
+
+    <!-- Footer with "Goodnight Bangaram" -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-note">🌸 Goodnight Bangaram • Sweet dreams, my precious treasure 🌸</div>
+        <div>Little Krishna • Panchatantra • Amar Chitra Katha • Tenali Raman • Akbar & Birbal</div>
+        <div style="font-size: 12px; opacity: 0.6; margin-top: 4px;">Made with all my heart for your birthday 💛</div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- -------------------------------------------------------------
+       8. PARCHMENT STORY READER MODAL (Strictly hidden by default)
+       ------------------------------------------------------------- -->
+  <div id="readerModalOverlay" class="modal-overlay" style="display: none;" onclick="handleOverlayClick(event, 'readerModalOverlay')">
+    <div class="reader-modal-box">
+      <button class="btn-close-modal" onclick="closeReaderModal()">✕</button>
+
+      <div class="reader-header">
+        <span id="modalChapterTag" class="reader-tag">Chapter 1 • Little Krishna</span>
+        <h2 id="modalChapterTitle" class="reader-title">The Midnight Butter Thief in Gokul</h2>
+        <p id="modalChapterSubtitle" class="reader-subtitle">Human Pyramids, Friendly Monkeys & Swinging Pots</p>
+      </div>
+
+      <!-- Text-to-Speech Controller -->
+      <div class="tts-bar">
+        <span class="tts-label">
+          <span>🎙️</span>
+          <span>Bedtime Voice Narrator:</span>
+        </span>
+        <button id="ttsToggleBtn" class="btn-tts" onclick="toggleBedtimeNarrator()">
+          <span id="ttsBtnIcon">🔊</span>
+          <span id="ttsBtnLabel">Read To Me</span>
+        </button>
+      </div>
+
+      <!-- Dialogue Quote Bubble -->
+      <div class="reader-quote-box">
+        <p id="modalChapterQuote" class="reader-quote">“Mother, how could I steal when my hands were occupied stroking the calf?”</p>
+        <span id="modalChapterMoral" class="reader-moral">Theme: Pure childhood innocence and loving playfulness.</span>
+      </div>
+
+      <!-- Narrative Body -->
+      <div id="modalChapterBody" class="reader-body">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <!-- Navigation Footer -->
+      <div class="reader-footer">
+        <button class="btn-nav-story" onclick="stepStory(-1)">← Previous Tale</button>
+        <button class="btn-done-reading" onclick="closeReaderModal()">Goodnight Bangaram 🌙</button>
+        <button class="btn-nav-story" onclick="stepStory(1)">Next Tale →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- -------------------------------------------------------------
+       9. BIRTHDAY LOVE LETTER MODAL (Strictly hidden by default)
+       ------------------------------------------------------------- -->
+  <div id="letterModalOverlay" class="modal-overlay" style="display: none;" onclick="handleOverlayClick(event, 'letterModalOverlay')">
+    <div class="letter-modal-box">
+      <button class="btn-close-modal" onclick="closeLetterModal()" style="color: #FFFDF7; background: rgba(255,255,255,0.15);">✕</button>
+
+      <div class="letter-star-icon">⭐</div>
+      <span class="letter-subtitle">A Bedtime Wish For My Bangaram</span>
+      <h3 class="letter-title">Happy Birthday, Bangaram 💛</h3>
+
+      <div class="letter-parchment">
+        <div class="letter-greeting">My Sweetest Bangaram,</div>
+        <p>
+          Whenever you talk about falling asleep to cartoons or rushing home to watch 
+          <strong style="color: var(--gold-primary);">Little Krishna</strong>, you have the exact same childlike twinkle in your eyes that made me fall completely in love with you.
+        </p>
+        <p>
+          I made this midnight storybook treasury just for you, my precious Bangaram—bringing together Kanha's mischievous butter adventures, the clever animal fables of the Panchatantra, the brave legends of Amar Chitra Katha, and the timeless bedtime wit of Tenali Raman, Akbar, and Birbal.
+        </p>
+        <p>
+          You bring the exact same warmth, pure magic, and sweetness into my world every single day.
+        </p>
+        <p style="font-family: var(--font-hand); font-size: 22px; color: var(--bangaram-rose); text-align: center; margin-top: 6px;">
+          Goodnight Bangaram. May your year ahead be as gentle, bright, and blessed as moonlit lotus groves. Sweet dreams, my gold! ✨
+        </p>
+      </div>
+
+      <!-- Interactive Wishing Star -->
+      <div class="letter-wish-box">
+        <div style="font-family: var(--font-hand); font-size: 21px; color: var(--gold-primary); font-weight: 700; margin-bottom: 4px;">
+          Make a Bedtime Wish Upon This Star, Bangaram 🌟
+        </div>
+        <div id="interactiveStar" class="wishing-star" onclick="makeBedtimeWish()" title="Tap to wish">
+          ⭐
+        </div>
+        <div id="interactiveStarText" class="wishing-status">
+          Tap the star to make your secret birthday wish!
+        </div>
+      </div>
+
+      <button class="btn-birthday" onclick="triggerStardust()" style="width: 100%; justify-content: center; font-size: 20px;">
+        ✨ Shower Golden Stardust for Bangaram
+      </button>
+    </div>
+  </div>
+
+  <!-- -------------------------------------------------------------
+       10. APPLICATION LOGIC & COMPLETE 35-STORY REPOSITORY
+       ------------------------------------------------------------- -->
+  <script>
+    /* =============================================================
+       DATA: 35 ILLUSTRATED BEDTIME TALES ACROSS 5 CATEGORIES
+       ============================================================= */
+    const storiesDatabase = [
+      // 1. LITTLE KRISHNA (11 TALES)
+      {
+        id: "k-01",
+        shelf: "krishna",
+        shelfLabel: "Little Krishna Leela",
+        icon: "🍯",
+        title: "The Midnight Butter Thief in Gokul",
+        subtitle: "Human Pyramids, Friendly Monkeys & Swinging Pots",
+        quote: "“Mother, how could I steal when my hands were occupied stroking the sleeping baby calf?”",
+        moral: "Theme: Pure childhood innocence and loving playfulness (Vatsalya Prema).",
+        preview: "Mother Yashoda thought her butter pots were safe in the high ceiling rafters, but Kanha and his monkey brigade had a very clever morning plan.",
+        paragraphs: [
+          "Every dawn in the village of Gokul began with the soft, comforting rhythm of Mother Yashoda's wooden churn: 'chhur-chhur, chhur-chhur'. The air smelled of sweet warm milk, freshly churned cream, and yellow kadamba blossoms. Yashoda would skim off the richest, golden butter, setting it into hand-painted earthen pots.",
+          "Knowing how much her little blue prince loved sweet cream, the village gopis tied their pots high up in woven hemp swings (shikkas) near the wooden roof beams. But Kanha’s big lotus eyes twinkled whenever he looked at those hanging pots. To him, the ceiling was not a barrier—it was an invitation to a great morning adventure!",
+          "Gathering his closest cowherd friends—Subala, Sridama, and Madhumangala—along with half a dozen eager courtyard monkeys, Kanha formed a sturdy human pyramid. Little Krishna, with his peacock feather bobbing and ankle bells chiming softly, scrambled up their shoulders like a nimble blue squirrel.",
+          "With a smooth little pebble, he tapped a tiny hole straight into the base of the pot. A warm, velvety stream of golden butter trickled down right into the eager hands of his cheering friends! When Yashoda caught him with cream on his nose, Kanha insisted with wide innocent eyes that the pot had sprung a leak and he had heroically saved the floor from getting sticky."
+        ]
+      },
+      {
+        id: "k-02",
+        shelf: "krishna",
+        shelfLabel: "Little Krishna Leela",
+        icon: "🌌",
+        title: "The Universe in a Toddler's Mouth",
+        subtitle: "Mother Yashoda's Glimpse of the Infinite Cosmos",
+        quote: "“Open wide this instant!” demanded Yashoda. And there she beheld spinning stars and fiery galaxies.",
+        moral: "Theme: The infinite universe tucked into tender divine sweetness.",
+        preview: "When Balarama accused little Kanha of eating river mud, Yashoda pried his mouth open—only to witness galaxies, swirling suns, and the entire cosmos within.",
+        paragraphs: [
+          "On a breezy golden afternoon along the soft red banks of the Yamuna, the children were playing in the sand. Suddenly, older brother Balarama ran to Yashoda shouting: 'Mother! Kanha is eating red mud again! He swallows the river dirt as if it were sweet kheer!'",
+          "Yashoda took a tender twig in hand and marched out to the courtyard with maternal discipline. 'Kanha! Why do you eat dirt like an undisciplined calf? Open your mouth!' Little Krishna shook his head vigorously, his dark ringlets bouncing: 'No Mother! Brother Balarama is teasing me because I am small. See for yourself!'",
+          "He parted his rosy lips and opened wide. Yashoda looked in—and gasped. The village courtyard dissolved away. Inside that tiny tender mouth, she saw the infinite cosmos: spiraling clusters of sapphire stars, fiery galaxies, roaring cosmic oceans, planets, and the celestial deities.",
+          "Right in the corner of that swirling celestial vortex, she saw Gokul, the courtyard, and herself looking wide-eyed into his mouth. Trembling with celestial awe and overflowing with love, Yashoda dropped her twig and gathered her divine baby into a warm, fierce hug."
+        ]
+      },
+      {
+        id: "k-03",
+        shelf: "krishna",
+        shelfLabel: "Little Krishna Leela",
+        icon: "🐍",
+        title: "Kaliya Daman: The Flute Dance on the Waves",
+        subtitle: "Cleansing the Sacred Waters of the Yamuna River",
+        quote: "“With the rhythm of ankle bells sounding cosmic cadences, he stepped from hood to hood, trading venom for surrender.”",
+        moral: "Theme: The subjugation of toxic ego and the restoration of peaceful harmony.",
+        preview: "When the hundred-headed serpent Kaliya poisoned the Yamuna, Little Krishna dived from a Kadamba tree to perform his celestial dance atop the dragon's crowns.",
+        paragraphs: [
+          "The sacred Yamuna River was once crystal clear and sweet as mountain honey. But the giant serpent Kaliya, fleeing from Garuda, made his home in a deep boiling whirlpool of its waters. His fiery venom scorched the trees along the shore, and wild birds dropped from the sky if they flew too close.",
+          "One sunny afternoon during an enthusiastic game of wooden ball with the cowherd boys, the ball splashed straight into the bubbling black whirlpool. While his friends trembled in fear, Little Krishna only smiled. Sprinting up the branches of a blossoming Kadamba tree, he dived fearlessly into the depths.",
+          "Kaliya rose with a furious roar, his hundred serpentine heads flaring with scarlet eyes. He coiled tightly around Krishna, trying to crush him. But Krishna expanded his celestial weight until the serpent felt the pressure of a thousand mountains and had to let go.",
+          "Springing onto Kaliya's crowns, Little Krishna raised his bansuri flute. With ankle bells chiming the rhythm of the cosmos, he danced gracefully from hood to hood. Under the sweet touch of his lotus feet, Kaliya's fierce pride melted into humble devotion, leaving the river forever clean and peaceful."
+        ]
+      },
+      {
+        id: "k-04",
+        shelf: "krishna",
+        shelfLabel: "Little Krishna Leela",
+        icon: "⛰️",
+        title: "The Big Mountain Umbrella (Govardhan Hill)",
+        subtitle: "Balanced on a Left Little Pinky for Seven Days",
+        quote: "“For seven days and seven nights, while torrential storms raged outside, all rested warm and dry.”",
+        moral: "Theme: Unconditional divine shelter and love for all living beings.",
+        preview: "King Indra poured apocalyptic storms upon Gokul. Young Krishna lifted the colossal mountain on his left little finger like a giant umbrella.",
+        paragraphs: [
+          "When young Krishna convinced the cowherds to thank Govardhan Hill—which gave tender green grass to their cows and fresh mountain springs—King Indra flew into a thunderous rage. He sent the dark Samvartaka storm clouds to flood the peaceful valley.",
+          "Lightning sheared the sky, hail poured down like stones, and cold torrential floods threatened to sweep away every cottage and calf. The shivering villagers rushed to little Kanha crying: 'Save us, Kanha!'",
+          "Krishna smiled serenely, strolled over to Govardhan Hill, and reached down. As effortlessly as a child lifts a floating lotus petal, he hoisted the colossal mountain onto the little pinky finger of his left hand!",
+          "He gathered all the villagers, the cows, the peacocks, and the forest deer safely underneath. For seven days and seven nights, while storms raged outside, everyone stayed warm and joyful, listening to Kanha play sweet bedtime melodies on his flute until the skies cleared into starlight."
+        ]
+      },
+      {
+        id: "k-05",
+        shelf: "krishna",
+        shelfLabel: "Little Krishna Leela",
+        icon: "🌪️",
+        title: "Trinavarta: The Demon Whirlwind's Fall",
+        subtitle: "Heavier than a Mountain High in the Clouds",
+        quote: "“High above the clouds, chubby toddler hands gently clasped the monster's neck.”",
+        moral: "Theme: Humility and calm composure conquer violent storms.",
+        preview: "The whirlwind demon Trinavarta snatched baby Krishna into the clouds, but the toddler made himself heavier than cosmic lead, bringing the storm gently to rest.",
+        paragraphs: [
+          "Mother Yashoda was cuddling baby Kanha on her verandah when she felt him grow strangely heavy, like a solid block of granite. She gently set him down on a soft mat while she went inside to fetch some milk.",
+          "At that moment, the demon Trinavarta descended in a screeching cyclone of blinding red sand. Howling winds ripped branches from trees and snatched the baby straight up into the stratosphere, intending to throw him onto jagged mountain rocks.",
+          "High above the lightning clouds, baby Krishna only smiled. He wrapped his chubby little hands around the monster's neck and began multiplying his weight. Trinavarta gasped, feeling the weight of the entire universe pressing against his throat.",
+          "The whirlwind collapsed, and the demon fell safely down into the outskirts of the fields. When the villagers rushed through the dust, they found the demon defeated and little Kanha sitting happily on the grass, sucking his thumb and playing with blue wildflowers."
+        ]
+      },
+      {
+        id: "k-06",
+        shelf: "krishna",
+        shelfLabel: "Little Krishna Leela",
+        icon: "🪵",
+        title: "The Twin Trees & The Wooden Mortar",
+        subtitle: "Toddler Kanha and the Liberation of Two Princes",
+        quote: "“Two fingers short remained every rope, until maternal love alone completed the knot.”",
+        moral: "Theme: The Supreme Lord is bound only by genuine love and affection.",
+        preview: "Tied to a wooden grinding mortar, toddler Krishna crawled between two ancient giant trees, toppling them with a cheer to free two trapped celestial princes.",
+        paragraphs: [
+          "Mother Yashoda, tired of chasing her little butter thief, decided to keep him safe in one spot. She brought a soft hemp rope to tie him to a heavy hardwood grinding mortar. But curiously, every rope she tied ended two fingers too short!",
+          "She added more ropes from the barn, yet every single time, the knot was two fingers short. Seeing his mother sweating under the warm sun, her jasmine garland falling loose, Krishna lovingly yielded and let her knot hold.",
+          "The moment Yashoda stepped away, adventurous Kanha began crawling forward on all fours, dragging the heavy wooden mortar behind him toward two gigantic Yamalarjuna trees that grew mere inches apart in the orchard.",
+          "He wiggled between the trunks until the mortar stuck horizontally. With one cheerful toddler tug, both colossal trees crashed softly to the earth! From the trunks arose two radiant celestial princes who bowed low before baby Krishna, thanking him for breaking an ancient curse before ascending to the stars."
+        ]
+      },
+      {
+        id: "k-07",
+        shelf: "krishna",
+        shelfLabel: "Little Krishna Leela",
+        icon: "🐉",
+        title: "Aghasura: The Cave of the Giant Python",
+        subtitle: "Picnic Day Rescue in the Forest",
+        quote: "“What looked like a mountain cave lined with red coral was the yawning maw of an ancient demon!”",
+        moral: "Theme: Fearless protection and love for innocent friends.",
+        preview: "The demon Aghasura disguised himself as a cave on the forest path. Kanha's cowherd friends walked right into his jaws—until Krishna expanded like the sun.",
+        paragraphs: [
+          "One radiant morning, the cowherd boys decided to have a grand forest picnic. They carried fresh rotis with mango pickle, curd rice wrapped in banana leaves, and tiny earthen pots of butter.",
+          "Along the mountain pass, they discovered what appeared to be an enchanting new cavern. Its lower lip rested on the ground, its upper palate touched the clouds, and red moss made it look like a cavern lined with rosy coral. One by one, the boys and calves marched cheerfully inside.",
+          "It was Aghasura, a colossal python demon sent to swallow the children. Little Krishna ran in after them before the jaws could snap shut. Inside the monster's throat, Krishna expanded his celestial radiance like blinding daylight.",
+          "Aghasura choked and burst open, allowing all the boys and little calves to walk back out without a single scratch, celebrating their magical picnic beneath the smiling sun."
+        ]
+      },
+      {
+        id: "k-08",
+        shelf: "krishna",
+        shelfLabel: "Little Krishna Leela",
+        icon: "🦤",
+        title: "Bakasura: The Crane with the Iron Beak",
+        subtitle: "Cooling Waters and the Parting of Iron Feathers",
+        quote: "“He parted the iron beaks as easily as a child splits a blade of sweet summer grass.”",
+        moral: "Theme: Arrogant aggression crumbles against peaceful innocence.",
+        preview: "While resting beside a lotus pond, the cowherds saw what looked like a snow-capped mountain sprout giant wings. Young Krishna stood fearless against the iron crane.",
+        paragraphs: [
+          "Beside a tranquil lily pond where the calves drank cool water, a giant shadow suddenly blocked the sunlight. Bakasura, a mountain-sized crane with feathers like iron daggers and a beak sharper than a warrior's spear, swooped down with a screech.",
+          "With one lightning strike of his beak, the monster swallowed young Krishna whole! His cowherd friends fell to the ground in terror, believing all was lost.",
+          "However, inside the demon’s throat, Krishna began glowing with the heat of a blazing summer sun. Burning with agony, the crane gasped and coughed the blue toddler right back onto the grassy bank.",
+          "When Bakasura charged again with snapping beaks, Krishna stepped forward with a calm smile. He seized the upper beak in one hand and the lower beak in the other, parting them effortlessly as if peeling a stalk of sweet grass, returning peacefully to his laughing friends."
+        ]
+      },
+      {
+        id: "k-09",
+        shelf: "krishna",
+        shelfLabel: "Little Krishna Leela",
+        icon: "🌴",
+        title: "The Sweet Palm Grove of Talavana",
+        subtitle: "Balarama’s Strength and Raining Golden Fruits",
+        quote: "“The fragrant tal fruits showered from the trees like golden coins, feeding every hungry child in Gokul.”",
+        moral: "Theme: True strength is used to share nature's gifts with everyone.",
+        preview: "The children smelled the ripe, honeyed palm fruits in the forbidden Talavana forest guarded by donkey demons. Krishna and Balarama turned it into a sweet feast.",
+        paragraphs: [
+          "The Talavana forest was famous for its tall palm trees loaded with ripe, sweet-smelling tal fruits. Their sugary fragrance drifted on the breeze for miles, but nobody dared enter because Dhenukasura and his wild herd guarded the grove.",
+          "The cowherd boys gathered around Krishna and big brother Balarama, tugging their dhotis: 'Kanha! Brother Baladeva! Our mouths water for those sweet fruits! Please help us get some!'",
+          "Smiling warmly, mighty Balarama marched into the center of the grove. He grasped two colossal palm tree trunks in his bare hands and shook them with thunderous force. Hundreds of heavy, ripe golden fruits rained down upon the mossy ground like sweet treasures!",
+          "When Dhenukasura charged with flailing hooves, Balarama caught his hind legs mid-air and spun him away into the highest tree. The orchard was liberated, and all the children carried armfuls of golden fruit back home for the village elders."
+        ]
+      },
+      {
+        id: "k-10",
+        shelf: "krishna",
+        shelfLabel: "Little Krishna Leela",
+        icon: "🐴",
+        title: "Keshi: The Demon Stallion of Fire",
+        subtitle: "Cooling the Burning Hooves on the Riverbank",
+        quote: "“His mane burned with red embers, but Krishna conquered the fiery beast with a peaceful left arm.”",
+        moral: "Theme: Calm composure extinguishes the hottest flames of rage.",
+        preview: "The fiery demon horse Keshi galloped toward Gokul, snorting hot sparks. Young Krishna stood unbothered, quenching the beast's fury with divine grace.",
+        paragraphs: [
+          "Keshi was a colossal stallion whose fiery mane burned with scarlet embers. When he galloped, his copper hooves tore trenches into the earth and sparks showered from his flared nostrils, threatening to burn the ripening wheat fields.",
+          "The villagers shrieked and fled toward the huts. But little Kanha stepped calmly into the horse’s path, standing barefoot in the grass with his peacock feather fluttering in the hot draft.",
+          "With an ear-splitting neigh, the horse lunged with gaping jaws to bite Krishna in half. Effortlessly, the boy thrust his left forearm straight into the beast’s burning mouth.",
+          "Instantly, Krishna expanded his arm's divine weight and heat. The fiery stallion coughed, suffocated, and fell harmlessly into the soft river mud, completely defeated without Krishna spilling a single drop of village blood."
+        ]
+      },
+      {
+        id: "k-11",
+        shelf: "krishna",
+        shelfLabel: "Little Krishna Leela",
+        icon: "🧺",
+        title: "The Fruit Vendor's Golden Jewels",
+        subtitle: "Three Grains of Rice for a Heart Full of Love",
+        quote: "“A toddler’s tiny handful of spilled grain turned an old woman's basket into shining pearls and diamonds.”",
+        moral: "Theme: The divine values the love in the gift, never its material worth.",
+        preview: "An elderly fruit seller walked through Gokul calling out for buyers. Toddler Krishna ran with a tiny fist of rice—and returned her simple kindness with jewels.",
+        paragraphs: [
+          "An elderly woman carrying a woven wicker basket filled with ripe mangoes, purple berries, and sweet red bananas walked through Gokul’s dusty lanes, calling: 'Sweet fruits for sale! Juicy mangoes!'",
+          "Hearing her call, toddler Krishna dashed to his mother’s kitchen pantry. He grabbed a handful of uncooked rice grains and rushed out to buy fruit. But because his little fingers were so tiny and excited, nearly all the grains slipped through his fingers as he ran.",
+          "By the time he reached the old vendor, only three little grains remained in his cupped blue palms. He held them up with eager, sparkling eyes: 'Mother! Please give me sweet fruit for this rice!'",
+          "Looking into his chubby rosy cheeks and innocent smile, the woman’s heart overflowed with maternal tenderness. She scooped up the three grains, threw both her arms wide, and piled the sweetest, ripest mangoes into his lap. When she walked home and set down her basket, she gasped: it was brimming to the rim with solid gold, sparkling rubies, and ocean pearls."
+        ]
+      },
+
+      // 2. PANCHATANTRA FABLES (8 TALES)
+      {
+        id: "p-01",
+        shelf: "panchatantra",
+        shelfLabel: "Panchatantra Fable",
+        icon: "🐰",
+        title: "The Clever Little Rabbit & The Moon in the Well",
+        subtitle: "How Quick Wit Outsmarted the Arrogant Forest Lion",
+        quote: "“The fiercest brute in the jungle was conquered not by claws, but by his own angry reflection in the deep well.”",
+        moral: "Moral: Calm intelligence and presence of mind can triumph over brute strength.",
+        preview: "When a tiny rabbit was chosen as a meal for the ferocious lion Bhasuraka, he used a deep stone well and the lion's own ego to bring peace to the forest.",
+        paragraphs: [
+          "In the dense green forest of Madhumana ruled Bhasuraka, a terrifying lion whose daily hunting threatened to empty the woods. The woodland animals held a meeting and made a treaty: each day, one animal would volunteer to walk peacefully to his cave.",
+          "One evening, the lot fell upon a frail, clever little rabbit. The rabbit did not panic. He walked with deliberate slowness, stopping to nibble wild clover, watch butterflies, and wait for twilight to settle. By the time he reached the lion's den, Bhasuraka was roaring with hunger.",
+          "'Why are you late, you tiny mouthful?' roared the lion. The rabbit bowed humbly: 'Sire! Six rabbits were sent to your feast, but another lion intercepted us, claiming he was the true king of this jungle! I barely escaped to bring you word!'",
+          "Enraged, the lion demanded to see this rival. The rabbit led him deep into the woods to an ancient stone well. 'He hides in this deep fortress,' whispered the rabbit. Bhasuraka peered over the rim. Seeing his own fierce face reflected in the dark water and hearing his roar echoed back from the stones, the lion leaped straight into the well, freeing the forest forever."
+        ]
+      },
+      {
+        id: "p-02",
+        shelf: "panchatantra",
+        shelfLabel: "Panchatantra Fable",
+        icon: "🐵",
+        title: "The Monkey, Crocodile & The Jamun Tree",
+        subtitle: "The Clever Heart Left in the Hollow Branch",
+        quote: "“My heart is safely tucked away in the hollow of the rose-apple tree; let us swim back so I may fetch it for your wife!”",
+        moral: "Moral: Never let fear cloud your quick thinking during moments of betrayal.",
+        preview: "A crocodile befriended a generous monkey living on a sweet rose-apple tree. But when the crocodile's wife wanted the monkey's heart, clever wit saved the day.",
+        paragraphs: [
+          "On the fertile banks of the sacred river lived Raktamukha, a cheerful monkey who lived in a lush jamun tree laden with ruby-red fruits. A weary crocodile named Karalamukha crawled onto the sand to rest, and the friendly monkey tossed down the sweetest fruits, sparking a treasured daily friendship.",
+          "The crocodile carried some fruits home to his wife. Tasting the honeyed flavor, she plotted: 'If this monkey eats such sweet fruits every day, imagine how sweet his heart must be! Fetch me his heart for dinner, or I shall starve!'",
+          "Torn between loyalty and his wife, the crocodile invited the monkey to his home for a feast, offering to carry him across the deep river on his back. Halfway across the current, the guilty crocodile confessed the truth.",
+          "Though terrified, the monkey kept completely calm. 'My dear friend!' he laughed warmly. 'Why didn't you tell me on shore? We monkeys keep our delicate hearts hidden in the hollow branch of the jamun tree! Turn back immediately so I may retrieve it for your wife!' The crocodile swam back, and the moment they touched land, the monkey leaped high into the safety of the branches, having outsmarted betrayal."
+        ]
+      },
+      {
+        id: "p-03",
+        shelf: "panchatantra",
+        shelfLabel: "Panchatantra Fable",
+        icon: "🦦",
+        title: "The Loyal Little Mongoose & The Cradle",
+        subtitle: "A Timeless Reminder to Always Look Before You Judge",
+        quote: "“She struck without pausing to see, and spent a lifetime weeping over the blood-stained cradle.”",
+        moral: "Moral: Never act in hasty fury without investigating the truth first.",
+        preview: "A mother left her sleeping infant under the watchful eye of a pet mongoose. Returning to find blood, she acted in panic—only to learn the heroic truth too late.",
+        paragraphs: [
+          "In a peaceful village lived a Brahmin and his wife, who raised an orphaned baby mongoose alongside their newborn son with the tender affection of a family pet. The little mongoose slept softly beneath the child’s wooden crib every night.",
+          "One morning, while the mother was drawing water from the village well, a venomous black cobra slithered through a crack in the wall, raising its hood over the baby's cradle. Without hesitation, the brave mongoose attacked the serpent, slaying it to keep the baby safe.",
+          "Covered in the snake's blood, the proud little mongoose ran to the doorstep to greet the returning mother. Seeing blood upon its jaws, the mother leaped to a horrifying conclusion, believing the mongoose had harmed her baby. In blind terror, she dropped her heavy copper water pot onto the creature.",
+          "She rushed inside—only to find her baby sleeping peacefully, and beside the crib, the shredded carcass of the deadly cobra. Weeping bitter tears of regret, she realized her loyal little guardian had saved her child's life, leaving a lesson for all of time to never judge in haste."
+        ]
+      },
+      {
+        id: "p-04",
+        shelf: "panchatantra",
+        shelfLabel: "Panchatantra Fable",
+        icon: "🐢",
+        title: "The Four Friends and the Hunter's Net",
+        subtitle: "The Crow, the Mouse, the Deer and the Tortoise",
+        quote: "“Small strands of grass, when braided together, can bind a wild elephant; united friends can overcome any net.”",
+        moral: "Moral: True friendship and selflessness can solve any problem.",
+        preview: "A crow, a mouse, a tortoise, and a deer proved that despite their small size, loyal teamwork can outsmart the most dangerous forest hunter.",
+        paragraphs: [
+          "Beside a tranquil forest pond lived four unlikely friends: Laghupatanaka the crow, Hiranyaka the mouse, Mantharaka the tortoise, and Chitranga the spotted deer. Every evening, they gathered on the mossy bank to share stories under the stars.",
+          "One afternoon, the deer was caught in the sturdy hemp net of a hunter. The crow flew aloft, found his friend, and flew back to fetch the mouse. Perched on the crow's wings, the mouse was flown to the net and gnawed through the cords just as the hunter arrived.",
+          "While the deer ran into the thickets, the slow tortoise was caught by the angry hunter, who tied him into his sack. Seeing their friend in danger, the other three created a brilliant rescue plan.",
+          "The deer ran ahead and lay down beside the path, playing dead, while the crow perched on his antlers, pecking gently to fool the hunter. Dropping his sack, the greedy hunter ran toward the deer. Instantly, the mouse chewed open the sack, freeing the tortoise into the lake, while the deer sprang to his feet and vanished into the trees. All four friends rejoiced safely under the moon."
+        ]
+      },
+      {
+        id: "p-05",
+        shelf: "panchatantra",
+        shelfLabel: "Panchatantra Fable",
+        icon: "🦊",
+        title: "The Little Blue Jackal Under the Moon",
+        subtitle: "The Indigo Vat and the Song of the Night",
+        quote: "“One can dye one's fur in the indigo vat of kings, but the full moon will always draw out the jackal's howl.”",
+        moral: "Moral: Borrowed colors and artificial masks cannot hide who you truly are.",
+        preview: "Chased by village dogs, a hungry jackal fell into an indigo dye vat. Emerging as a bright sapphire beast, he proclaimed himself king until the moonlight spoke.",
+        paragraphs: [
+          "A starving jackal named Chandaraka wandered into a washerman's lane looking for food. Spotted by barking hounds, he scrambled over a fence and tumbled headfirst into a stone vat filled with deep blue indigo dye.",
+          "When he climbed out, his fur was dyed a vibrant, magical sapphire blue from ears to tail. Returning to the forest, all the tigers and elephants fled in awe, believing he was a celestial king sent by the gods.",
+          "Seizing the moment, the jackal puffed his chest: 'The gods have appointed me king of this forest! Bring me your finest food, and I shall protect you all!' For months, he lived like royalty, exiling all other jackals to keep his secret safe.",
+          "One night, as the full moon rose above the trees, a distant pack of jackals began their evening howl. Unable to resist his true nature, the blue jackal pointed his nose to the stars and let out a loud: 'Aaooo! Aaooo!' The tigers and lions realized they had been fooled, proving that false colors cannot change who you are inside."
+        ]
+      },
+      {
+        id: "p-06",
+        shelf: "panchatantra",
+        shelfLabel: "Panchatantra Fable",
+        icon: "🐢",
+        title: "The Turtle Who Couldn't Keep Quiet",
+        subtitle: "The Wooden Stick and the Flying Journey",
+        quote: "“Silence is the golden chariot of survival; an idle tongue loses its grip on life.”",
+        moral: "Moral: Learn when to remain silent, especially in moments of great height.",
+        preview: "Two loyal geese offered to fly their turtle friend to a fresh lake using a wooden stick—on the strict condition that he never opened his mouth in midair.",
+        paragraphs: [
+          "Kambugriva was a friendly turtle who lived in a beautiful lake alongside two wild white geese, Sankata and Vikata. During an unusually scorching summer, the lake dried into cracked yellow mud.",
+          "The geese proposed a clever plan: 'We will each hold one end of a sturdy bamboo stick in our beaks. You must bite the middle firmly with your jaws. We will fly high across the mountains to a cool blue lake. But remember: whatever happens, do not speak a single word!'",
+          "The turtle agreed, clamped his jaws around the stick, and took to the clouds. As they flew above a bustling market town, people pointed and cheered: 'Look up! Two birds carrying a turtle on a stick! What a comical sight!'",
+          "Infuriated by the laughter, the turtle forgot his solemn promise and opened his mouth to shout: 'Mind your own business, you fools!' The instant he unclamped his jaws, he plummeted from the sky into a soft haystack below, learning the bitter cost of unnecessary chatter."
+        ]
+      },
+      {
+        id: "p-07",
+        shelf: "panchatantra",
+        shelfLabel: "Panchatantra Fable",
+        icon: "🐭",
+        title: "The Lion & The Tiny Woodland Mouse",
+        subtitle: "Sharp Teeth That Cut Heavy Hunter Cords",
+        quote: "“No friend is ever too small to be of mighty help in the hour of darkness.”",
+        moral: "Moral: Kindness is never wasted, and the smallest among us can be great heroes.",
+        preview: "A mighty lion spared a playful mouse who accidentally ran across his sleeping paws. When the lion was trapped in a hemp net, the tiny mouse returned the favor.",
+        paragraphs: [
+          "A majestic lion was dozing under the shade of a flowering banyan tree when a tiny field mouse scurried across his nose, waking him with a start. The lion pinned the trembling mouse beneath his giant paw.",
+          "'Please, mighty king!' squeaked the mouse. 'Spare my tiny life! If you let me go, perhaps one day I may return your kindness!' The lion chuckled at the thought of a mouse helping a king of beasts, but his good humor won out, and he lifted his paw.",
+          "A month later, the lion stepped into a heavy braided net laid by royal poachers. Ropes bound his limbs tightly to a thick trunk. The lion roared in helpless agony, awaiting the hunter's spears at dawn.",
+          "Hearing the familiar roar, the little mouse scampered to the net. With tiny, razor-sharp teeth, he gnawed through the thick hemp knot by knot. Before the hunters arrived, the mighty lion was free, bowing his golden head in grateful respect to his tiny savior."
+        ]
+      },
+      {
+        id: "p-08",
+        shelf: "panchatantra",
+        shelfLabel: "Panchatantra Fable",
+        icon: "🦀",
+        title: "The Greedy Stork & The Clever Crab",
+        subtitle: "The Broken Promise on the Mountain Rock",
+        quote: "“A villain who feeds on innocence will eventually choke on the claws of truth.”",
+        moral: "Moral: Greed and deception will eventually meet a just end.",
+        preview: "An elderly stork tricked lake fish into believing he was flying them to safety, only to feast on them. But when he tried the same trick on a crab, justice was served.",
+        paragraphs: [
+          "An aging stork who had grown too slow to catch fish stood weeping beside a pond. When the curious fish asked why he wept, the stork sighed: 'Alas! I heard fishermen plotting to cast their giant nets here tomorrow. Out of mercy, I can carry you one by one in my beak to a deep mountain lake!'",
+          "Believing his pious words, the fish eagerly lined up. But instead of flying them to safety, the wicked stork carried each fish to a flat mountain rock and devoured them, leaving a pile of white bones.",
+          "One day, a wise old crab asked for a ride. The stork picked him up. High in the air, the crab looked down and saw the gleaming pile of fish bones on the rock, instantly realizing the stork’s treachery.",
+          "Before the stork could land, the crab locked his sharp pincers around the bird's long neck like an iron vise. The stork choked and pleaded, but the crab squeezed until the villain collapsed, returning safely to warn the remaining pond creatures."
+        ]
+      },
+
+      // 3. AMAR CHITRA KATHA (8 TALES)
+      {
+        id: "a-01",
+        shelf: "ack",
+        shelfLabel: "Amar Chitra Katha",
+        icon: "🏹",
+        title: "Little Hanuman Reaching for the Sun",
+        subtitle: "The Golden Mango in the Morning Sky",
+        quote: "“Awaken your forgotten might, for to you the ocean is but a puddle in a cow's hoofprint!”",
+        moral: "Theme: Divine strength awakens through innocence, humility, and faith.",
+        preview: "As a baby, Little Hanuman saw the rising sun and thought it was a delicious ripe mango. He leaped into the sky, beginning his legendary journey of devotion.",
+        paragraphs: [
+          "As an energetic little baby in Kishkindha, Hanuman opened his eyes one morning and saw the glowing orange sun rising above the mountain peaks. Believing it was a giant, delicious ripe mango waiting to be plucked, he bounded into the sky with fearless delight.",
+          "Even the king of heaven, Indra, was stunned by the child's boundless energy. Later, when Hanuman forgot his immense celestial strength, elderly bear king Jambavan reminded him of who he truly was: 'Why do you sit in silence, O son of the Wind? For you, the ocean is but a puddle in a cow's hoofprint!'",
+          "Remembering his purpose, Hanuman’s heart filled with devotion to Rama. He expanded his form, leaped across the ocean, delivered Rama's signet ring to Sita in Lanka, and returned victorious, proving that pure love is the greatest strength in the universe."
+        ]
+      },
+      {
+        id: "a-02",
+        shelf: "ack",
+        shelfLabel: "Amar Chitra Katha",
+        icon: "🦁",
+        title: "Prince Prahlada & The Pillar of Light",
+        subtitle: "Unshakable Faith in the Heart of Twilight",
+        quote: "“He is in this pillar, in the dust, in you, and in me.”",
+        moral: "Theme: Pure love and courage conquer the darkest arrogance.",
+        preview: "King Hiranyakashipu asked: 'Is your God inside this stone pillar?' When he struck it, Lord Vishnu appeared as Narasimha to protect his little devotee.",
+        paragraphs: [
+          "The demon king Hiranyakashipu believed he was invincible, but his young son, Prince Prahlada, held a pure and gentle devotion to Lord Vishnu that no threat could break.",
+          "One evening at twilight, the furious king dragged Prahlada before his palace throne and pointed his iron mace at a stone pillar: 'Where is your Lord? Is he inside this cold stone pillar?' Prahlada replied with calm certitude: 'He is in this pillar, in the dust, in you, and in me.'",
+          "The king struck the pillar with all his might. With a sound like thunder, the stone split open, and Lord Narasimha stepped forth to defeat the tyrant at the palace threshold, protecting the humble prince and proving that faith is never abandoned."
+        ]
+      },
+      {
+        id: "a-03",
+        shelf: "ack",
+        shelfLabel: "Amar Chitra Katha",
+        icon: "🕯️",
+        title: "Princess Savitri's Clever Wish",
+        subtitle: "The Unconquerable Intellect of Love Against Destiny",
+        quote: "“How can a devoted wife bear a hundred noble sons without her husband returned to life?”",
+        moral: "Theme: Resolute wisdom and unwavering love can transcend any fate.",
+        preview: "Princess Savitri chose to marry Satyavan knowing his destiny. When the Lord of Death claimed him, her sharp intellect won back his life.",
+        paragraphs: [
+          "Princess Savitri chose to marry Satyavan despite being warned that he was destined to live only one more year. When that day arrived in the forest, Lord Yama, the god of death, arrived to claim Satyavan’s soul.",
+          "Savitri followed Yama into the twilight shadows, speaking verses of duty, truth, and righteousness. Impressed by her wisdom, Yama offered her three boons—excluding only Satyavan’s life.",
+          "For her final boon, Savitri asked: 'Grant that I may be blessed with a hundred noble sons.' Yama granted it without thinking. Savitri smiled gently: 'Lord, how can a devoted wife bear a hundred noble sons without her husband returned to life?' Trapped by his own divine word and touched by her love, Yama smilingly returned Satyavan to her, blessing them with long centuries of happiness."
+        ]
+      },
+      {
+        id: "a-04",
+        shelf: "ack",
+        shelfLabel: "Amar Chitra Katha",
+        icon: "🛡️",
+        title: "Karna's Boundless Giving at Dawn",
+        subtitle: "The Golden Armor and Earrings Gifted Freely",
+        quote: "“A true giver never turns away a soul who asks at the hour of dawn.”",
+        moral: "Theme: Selfless generosity and unwavering honor under all trials.",
+        preview: "Born with divine armor, Karna refused to deny a request at sunrise—giving away his impenetrable golden protection with a peaceful, joyful smile.",
+        paragraphs: [
+          "Every morning as the golden sun rose over the horizon, prince Karna stood waist-deep in the river waters offering his morning prayers. It was his sacred vow that whatever any poor beggar or sage asked of him at that hour, he would grant without hesitation.",
+          "Knowing that the great battle approached, King Indra came disguised as a humble hermit, begging for Karna’s natural golden armor (Kavacha) and radiant earrings (Kundala), which made him invulnerable.",
+          "Though the Sun god Surya had warned him of Indra's trickery in a dream, Karna only smiled. With unmatched nobility, he peeled the celestial armor from his body and handed it to the disguised god. Touched to tears by his boundless honor, Indra granted him the divine Shakti weapon, immortalizing Karna's fame forever."
+        ]
+      },
+      {
+        id: "a-05",
+        shelf: "ack",
+        shelfLabel: "Amar Chitra Katha",
+        icon: "🦢",
+        title: "Damayanti & The Golden Messenger Swan",
+        subtitle: "A Midnight Tale of Loyalty and Love",
+        quote: "“Across mountains and starry lakes, the golden swan carried their secret words of love.”",
+        moral: "Theme: Pure love is guided by destiny through every trial.",
+        preview: "Princess Damayanti was visited in her palace gardens by a talking golden swan, who carried heartfelt messages of love between her and the noble King Nala.",
+        paragraphs: [
+          "In the fragrant palace gardens of Vidarbha, Princess Damayanti was sitting beside a lotus pond beneath the evening moon when an exquisite wild swan with feathers of pure spun gold landed gently on the water.",
+          "Damayanti crept forward to touch the bird, but the swan spoke in a gentle, human voice: 'Fear not, Princess! I come from King Nala of Nishadha, a king as brave as the stars and as gentle as the evening breeze.'",
+          "The swan flew back and forth across kingdoms, carrying poems of devotion between the two. Through all the tests of life, Damayanti's unwavering loyalty to Nala proved that true love is guided by destiny and sheltered by the stars."
+        ]
+      },
+      {
+        id: "a-06",
+        shelf: "ack",
+        shelfLabel: "Amar Chitra Katha",
+        icon: "🏹",
+        title: "Eklavya's Unshakable Devotion",
+        subtitle: "The Clay Guru & The Whispering Arrows",
+        quote: "“True mastery lives not in the physical teacher’s presence, but in the pupil’s pure reverence.”",
+        moral: "Theme: Unwavering focus, dedication, and respectful honor.",
+        preview: "Denied training by Guru Dronacharya, young Nishada prince Eklavya built a clay statue of his teacher and practiced until his archery surpassed kings.",
+        paragraphs: [
+          "Young Eklavya longed to learn archery under Guru Dronacharya, but because he was born to a forest tribe, Drona turned him away to reserve royal training for the Pandava princes.",
+          "Undeterred, Eklavya walked deep into the quiet forest, gathered sacred river clay, and sculpted a life-sized statue of Drona. Every morning, he bowed to the statue and practiced firing arrows at floating leaves and whispering winds from sunrise to moonlight.",
+          "Years later, when a barking dog disturbed his practice, Eklavya shot seven arrows so swiftly that they filled the dog's mouth without piercing a single drop of blood. Stunned, Drona investigated and found the boy bowing before his clay image.",
+          "When Drona asked for his right thumb as Gurudakshina, Eklavya sliced it off with a serene smile. Touched by his supreme honor, Drona blessed him, ensuring Eklavya’s name became an eternal beacon of devotion across history."
+        ]
+      },
+      {
+        id: "a-07",
+        shelf: "ack",
+        shelfLabel: "Amar Chitra Katha",
+        icon: "⚔️",
+        title: "Rani Abbakka: The Fearless Queen of Ullal",
+        subtitle: "The Midnight Flaming Arrows of Karnataka",
+        quote: "“She defended her coastal shores with warrior canoes and blazing midnight fire.”",
+        moral: "Theme: Fierce bravery and patriotic dignity against overwhelming odds.",
+        preview: "Queen Abbakka of Ullal resisted mighty colonial armadas for decades, leading nocturnal naval strikes and inspiring an entire coastline with her valor.",
+        paragraphs: [
+          "On the palm-fringed coast of Karnataka stood the prosperous trading port of Ullal, ruled by the courageous Chowta queen, Rani Abbakka. When powerful foreign ships demanded monopoly taxes, Abbakka flatly refused.",
+          "She trained men and women of all castes and religions in archery, horseback combat, and coastal warfare. During night battles, Abbakka deployed swift wooden canoes loaded with burning pitch, setting enemy galleons ablaze across the Arabian Sea.",
+          "For over four decades, she repelled six major imperial assaults, personally wielding two swords at the head of her guard. Her indomitable spirit earned her the eternal title of 'Abhaya Rani'—the Fearless Queen."
+        ]
+      },
+      {
+        id: "a-08",
+        shelf: "ack",
+        shelfLabel: "Amar Chitra Katha",
+        icon: "💍",
+        title: "Shakuntala & The Moonlit Signet Ring",
+        subtitle: "The Hermitage of Deer and the River of Destiny",
+        quote: "“A jewel dropped in the river currents, yet destiny rewrote the royal reunion.”",
+        moral: "Theme: Pure truth will always rise to the surface of time.",
+        preview: "Raised among gentle deer in Sage Kanva's ashram, Shakuntala fell in love with King Dushyanta. Though an ancient curse caused him to forget, a royal fish held the key.",
+        paragraphs: [
+          "Deep in the tranquil forest hermitage of Sage Kanva lived Shakuntala, a maiden whose gentle soul was so pure that wild fawns ate from her palms and flowering creepers bent toward her touch. There she met King Dushyanta, who wed her and gifted her his royal signet ring.",
+          "Due to a fiery sage's curse, Dushyanta forgot her until she could present the ring. On her journey to the capital, the golden ring slipped from her hand into the sacred river while she cupped cool water to pray.",
+          "Without the token, the king turned her away with a broken heart. Years later, a humble fisherman caught a giant carp and found the royal signet ring inside its belly.",
+          "The moment Dushyanta touched his ring, the fog of the curse dissolved. Weeping with remorse, he rode into the mountains and was reunited with Shakuntala and their brave young son Bharata, filling the kingdom with joyous bells."
+        ]
+      },
+
+      // 4. TENALI RAMAN (4 TALES)
+      {
+        id: "t-01",
+        shelf: "tenali",
+        shelfLabel: "Tenali Raman Wit",
+        icon: "🪣",
+        title: "Tenali Raman Waters the Midnight Garden",
+        subtitle: "Tricking Thieves with an Iron Chest of Stones",
+        quote: "“Thank you, kind gentlemen! My thirsty mango trees could never have received so much water without your hard labor!”",
+        moral: "Moral: Humor and sharp wit can turn danger into effortless victory.",
+        preview: "When thieves hid in his courtyard to steal his gold, Tenali Raman tricked them into watering his entire dry garden throughout the cool night.",
+        paragraphs: [
+          "During a dry summer in the Vijayanagara Empire, the brilliant court jester Tenali Raman spotted three thieves lurking in the bushes outside his cottage, waiting for him to fall asleep.",
+          "Raman quietly told his wife: 'Bandits are roaming! We must lock our heavy gold jewelry in our iron trunk and drop it into the garden well where nobody can find it!' He spoke loudly enough for the eavesdropping thieves to hear every word.",
+          "Together, Raman and his wife dragged a heavy trunk—filled to the brim with large stones—and dropped it with a loud splash into the well. As soon as Raman went to sleep, the thieves rushed to the well and spent the entire night pulling hundreds of buckets of water to drain it, dumping the water into the garden irrigation channels.",
+          "By sunrise, Raman walked out with his morning tea to find his mango saplings and jasmine bushes thoroughly watered. He smiled warmly at the exhausted thieves: 'Thank you, good sirs! You saved me a week of garden work!' The terrified thieves dropped their buckets and ran away forever."
+        ]
+      },
+      {
+        id: "t-02",
+        shelf: "tenali",
+        shelfLabel: "Tenali Raman Wit",
+        icon: "✨",
+        title: "Goddess Kali's Thousand Faces & Cosmic Sneeze",
+        subtitle: "How Tenali Received the Boon of the Wit-Poet",
+        quote: "“Mother! If I struggle to wipe a single running nose with two hands, what do you do with a thousand running noses?”",
+        moral: "Moral: Fearless humor and innocent joy can win the highest blessings.",
+        preview: "Sent to an ancient temple to please the terrifying Goddess Kali, young Raman burst out laughing at the divine vision—and received the eternal gift of humor.",
+        paragraphs: [
+          "When young Tenali Raman was sent to the quiet riverside temple to chant sacred mantras for Goddess Kali, the fearsome goddess appeared before him in the dead of midnight with a thousand radiant, terrifying faces and two thousand arms.",
+          "Instead of trembling in fear like ordinary mortals, Raman looked at the magnificent goddess and burst into uncontrollable giggles. Offended, Kali demanded: 'Foolish boy! Mortals faint at my sight! Why do you laugh in my presence?'",
+          "Raman bowed politely and replied: 'Forgive me, O Mother of the Universe! When I catch a winter cold, I have only one nose, yet my two hands can barely find the handkerchief in time. I was just wondering: when you catch a cold, how on earth do you manage a thousand running noses with only two hands per face?'",
+          "Goddess Kali paused, and then her own divine laughter echoed across the cosmos. Delighted by his innocence and sharp wit, she blessed him with the title 'Vikatakavi'—the laughing court poet whose wisdom would guide kings and delight children for generations."
+        ]
+      },
+      {
+        id: "t-03",
+        shelf: "tenali",
+        shelfLabel: "Tenali Raman Wit",
+        icon: "🐎",
+        title: "The Royal Stallion with Only a Tail",
+        subtitle: "Teaching the King What True Imagination Looks Like",
+        quote: "“Your Majesty, the horse has already leaped out of the frame into the royal meadow!”",
+        moral: "Moral: Art is shaped by perspective, imagination, and clever interpretation.",
+        preview: "Challenged by King Krishnadevaraya to paint a masterpiece, Tenali presented a canvas with only a few black hairs. His witty explanation left the court in stitches.",
+        paragraphs: [
+          "King Krishnadevaraya once praised a famous visiting court painter lavishly. Tenali Raman whispered that anyone with a good imagination could paint better. Annoyed, the king challenged him: 'Here is canvas and paints! You have one month to produce a painting, or be banished from court!'",
+          "A month passed, and Raman arrived before the grand assembly holding a cloth-covered wooden easel. The ministers snickered, expecting his defeat.",
+          "When Raman pulled away the cloth, the court gasped. The canvas was completely blank except for three curved black brushstrokes at the very bottom corner.",
+          "'What is this nonsense, Raman?' thundered the King. 'Where is the horse you were supposed to paint?' Raman bowed calmly: 'Your Majesty, this is the finest stallion in the empire! Can you not see his magnificent tail flicking at the edge? The rest of the horse has already galloped forward out of the canvas into the green meadows!' The king could not help but roar with laughter, awarding Raman a bag of gold coins for his unmatched wit."
+        ]
+      },
+      {
+        id: "t-04",
+        shelf: "tenali",
+        shelfLabel: "Tenali Raman Wit",
+        icon: "🥭",
+        title: "The Golden Mangoes & The Red-Hot Iron",
+        subtitle: "How Tenali Cured the Greed of the Court Priests",
+        quote: "“To heal my mother’s rheumatism in heaven, you must all receive a gentle touch of hot iron!”",
+        moral: "Moral: Hypocrisy and greed are best cured by serving people a taste of their own medicine.",
+        preview: "When greedy priests demanded expensive golden mangoes to fulfill the late Queen Mother's last wish, Tenali Raman devised a hot and humorous lesson.",
+        paragraphs: [
+          "King Krishnadevaraya's mother fell ill and expressed a dying wish to eat sweet, ripe mangoes. Sadly, before the season’s first fruit could be brought from the royal orchards, she passed away peacefully.",
+          "Distraught, the king consulted the court priests. Sensing an opportunity, the greedy priests insisted: 'To grant the Queen Mother’s soul eternal peace, you must distribute thirty solid golden mangoes to the royal priests!' The grieving king agreed immediately.",
+          "Hearing of this exploitation, Tenali Raman invited the thirty priests to his home the next evening, promising an even greater sacred offering for his own late mother. When the priests gathered eagerly in his courtyard, Raman walked out holding glowing red-hot iron branding rods!",
+          "'My dear mother suffered from severe joint aches,' Tenali explained sweetly. 'The only cure was hot iron therapy. To grant her peace in the afterlife, I must brand each of you once!' Terrified, the priests dropped their bags of gold mangoes, begged for forgiveness, and fled, learning that greed always meets its match."
+        ]
+      },
+
+      // 5. AKBAR & BIRBAL (4 TALES)
+      {
+        id: "b-01",
+        shelf: "birbal",
+        shelfLabel: "Akbar & Birbal",
+        icon: "🍲",
+        title: "Birbal’s Midnight Khichdi in the Cold",
+        subtitle: "The Fire Placed Five Feet Below the Cooking Pot",
+        quote: "“If a poor man can warm himself from a palace lantern miles away, surely this flame can cook our royal khichdi!”",
+        moral: "Moral: Empathy and justice must prevail over impossible royal technicalities.",
+        preview: "A poor washerman survived a freezing night in the palace lake, but the Emperor denied his reward. Birbal used an uncookable pot of khichdi to teach Akbar the truth.",
+        paragraphs: [
+          "On a bitterly cold winter night in Agra, Emperor Akbar made a wager: anyone who could stand neck-deep in the icy waters of the Yamuna River until sunrise would receive a thousand gold coins. A destitute washerman named Ramu accepted the challenge and survived the night, thinking of his starving family.",
+          "The next morning at court, Akbar asked: 'How did you survive such lethal cold?' The honest washerman replied: 'Huzoor, I fixed my eyes upon the warm glowing lantern on your palace terrace a mile away, and the thought of warmth gave me strength.' Akbar scowled: 'You absorbed the heat of my royal lamp! You broke the rules—no reward!'",
+          "The following day, Birbal did not come to court. Akbar rode to Birbal's house to investigate. In the garden, he found Birbal sitting beneath a tall bamboo pole. Suspended ten feet high at the very top was a small cooking pot of rice and lentils, with a tiny pile of burning twigs on the ground below.",
+          "'Are you mad, Birbal?' laughed Akbar. 'How can that tiny flame on the ground cook a pot hanging ten feet in the sky?' Birbal looked gently into the Emperor's eyes: 'Jahanpanah, if a poor washerman can warm his frozen body from a distant lamp a mile away, surely this fire can cook my khichdi.' Akbar felt deep shame, praised Birbal's wisdom, and immediately awarded the washerman twice the promised gold."
+        ]
+      },
+      {
+        id: "b-02",
+        shelf: "birbal",
+        shelfLabel: "Akbar & Birbal",
+        icon: "🦅",
+        title: "Counting the Crows of the Agra Kingdom",
+        subtitle: "The Number That Could Never Be Proven Wrong",
+        quote: "“There are exactly ninety-five thousand, four hundred and sixty-three crows, Your Majesty. If there are more, they have guests!”",
+        moral: "Moral: Quick, witty thinking can solve any impossible question.",
+        preview: "Akbar challenged his ministers to count every crow in the imperial city. While others panicked, Birbal gave an exact number with an airtight explanation.",
+        paragraphs: [
+          "One pleasant evening, Emperor Akbar and Birbal were strolling through the fragrant royal gardens, watching hundreds of crows circling the ancient fortress towers. Akbar decided to test his favorite courtier with an impossible riddle.",
+          "'Birbal,' Akbar asked with a sly smile, 'can you tell me exactly how many crows reside in the entire city of Agra?' The surrounding courtiers smirked, thinking Birbal was finally trapped.",
+          "Birbal closed his eyes for just three seconds, tapped his chin thoughtfully, and bowed: 'Jahanpanah, there are precisely ninety-five thousand, four hundred and sixty-three crows in our city.'",
+          "Akbar raised an eyebrow: 'And what if a royal census counts fewer than that?' Birbal smiled serenely: 'Then the remaining crows have flown to visit their relatives in Delhi, Huzoor.' Akbar chuckled: 'And what if there are more?' 'Then their relatives from Jaipur have come to spend the holidays in Agra!' Akbar burst into hearty laughter, admiring how Birbal’s quick mind turned a trap into pure joy."
+        ]
+      },
+      {
+        id: "b-03",
+        shelf: "birbal",
+        shelfLabel: "Akbar & Birbal",
+        icon: "💍",
+        title: "The Stolen Ring and the Magic Straws",
+        subtitle: "How Guilty Consciences Shorten Themselves",
+        quote: "“Magic straws only grow longer for honest souls, yet a thief’s fear will always cut them short.”",
+        moral: "Moral: Guilt and fear always betray the dishonest heart.",
+        preview: "When Emperor Akbar's precious gemstone ring vanished from his private chambers, Birbal handed identical straws to the servants, claiming they were magical.",
+        paragraphs: [
+          "One morning, Emperor Akbar awoke to find his favorite signet ring, studded with a rare ruby and eight pearls, missing from his bedside jewel box. Since only eight personal attendants had entered the chamber, one of them was certainly the culprit.",
+          "Birbal was summoned. Instead of interrogating them, Birbal handed each of the eight servants a simple bamboo straw of exactly eight inches in length.",
+          "'These are enchanted straws gifted by a Himalayan mystic,' announced Birbal with grave seriousness. 'Sleep with them tonight. By sunrise, the straw belonging to the real thief will miraculously grow two inches longer!'",
+          "That night, seven honest servants slept soundly. But the thief was terrified. He thought: 'If my straw grows two inches by morning, I will be executed! Let me trim two inches off tonight so it will be the normal length tomorrow!'",
+          "The next morning, Birbal lined up the servants and inspected their straws. One servant’s straw was two inches shorter than all the rest! The trembling servant fell to the floor and returned the ruby ring, proving that the greatest detector of crime is a guilty conscience."
+        ]
+      },
+      {
+        id: "b-04",
+        shelf: "birbal",
+        shelfLabel: "Akbar & Birbal",
+        icon: "🗣️",
+        title: "The Test of the True Mother Tongue",
+        subtitle: "A Splash of Cold Midnight Water Reveals the Heart",
+        quote: "“In times of sudden danger or surprise, a man always calls upon the sweet language of his mother's cradle.”",
+        moral: "Moral: Beneath all learned titles and masks, our true roots remain etched in our hearts.",
+        preview: "A multilingual scholar baffled Akbar's court, challenging anyone to identify his native tongue. Birbal waited for midnight to reveal the truth with a bucket of water.",
+        paragraphs: [
+          "A renowned scholar visited Emperor Akbar’s court, speaking Persian, Arabic, Sanskrit, Tamil, Bengali, French, and Turkish with such flawless native accents that no scholar could discern where he was born.",
+          "The scholar challenged the imperial court: 'If anyone among your wise ministers can identify my true mother tongue before sunrise tomorrow, I shall acknowledge Akbar's court as supreme.' All the ministers failed.",
+          "That night, as the scholar was sleeping peacefully in the royal guest pavilion, Birbal silently sneaked into the room holding a brass bucket of ice-cold river water. With a sudden splash, Birbal drenched the sleeping scholar!",
+          "Waking with a terrified gasp, the scholar jumped out of bed, sputtering furious curses in pure, fluent Gujarati! Birbal bowed low: 'Forgive the cold shower, noble pandit! Your mother tongue is Gujarati!'",
+          "The next morning, the scholar confessed before the Emperor with folded hands. When Akbar asked Birbal how he knew, Birbal smiled: 'Jahanpanah, a man may learn twenty languages to impress the world, but when he is startled awake in the dark, he always cries out in the sweet tongue his mother sang to him in his cradle.'"
+        ]
+      }
+    ];
+
+    /* =============================================================
+       FILTERING & GRID RENDERING
+       ============================================================= */
+    let currentShelf = 'all';
+    let searchQuery = '';
+    let filteredStories = [...storiesDatabase];
+    let selectedStoryIndex = 0;
+    let isSpeaking = false;
+
+    const storiesGrid = document.getElementById('storiesGrid');
+    const emptyNotice = document.getElementById('emptySearchNotice');
+    const shelfTitle = document.getElementById('shelfTitle');
+    const shelfDesc = document.getElementById('shelfDesc');
+    const shelfIcon = document.getElementById('shelfIcon');
+    const shelfCounterLabel = document.getElementById('shelfCounterLabel');
+
+    function updateCounters() {
+      const counts = {
+        all: storiesDatabase.length,
+        krishna: storiesDatabase.filter(s => s.shelf === 'krishna').length,
+        panchatantra: storiesDatabase.filter(s => s.shelf === 'panchatantra').length,
+        ack: storiesDatabase.filter(s => s.shelf === 'ack').length,
+        tenali: storiesDatabase.filter(s => s.shelf === 'tenali').length,
+        birbal: storiesDatabase.filter(s => s.shelf === 'birbal').length
+      };
+
+      const setEl = (id, val) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = val;
+      };
+
+      setEl('countAll', counts.all);
+      setEl('countKrishna', counts.krishna);
+      setEl('countPanchatantra', counts.panchatantra);
+      setEl('countAck', counts.ack);
+      setEl('countTenali', counts.tenali);
+      setEl('countBirbal', counts.birbal);
+    }
+
+    function renderStories() {
+      storiesGrid.innerHTML = '';
+
+      filteredStories = storiesDatabase.filter(s => {
+        const matchesShelf = currentShelf === 'all' || s.shelf === currentShelf;
+        const q = searchQuery.toLowerCase();
+        const matchesSearch = !q || 
+          s.title.toLowerCase().includes(q) || 
+          s.subtitle.toLowerCase().includes(q) || 
+          s.preview.toLowerCase().includes(q) ||
+          s.paragraphs.some(p => p.toLowerCase().includes(q));
+        return matchesShelf && matchesSearch;
+      });
+
+      shelfCounterLabel.textContent = `${filteredStories.length} bedtime stories ready for Bangaram`;
+
+      if (filteredStories.length === 0) {
+        emptyNotice.style.display = 'block';
+        return;
+      } else {
+        emptyNotice.style.display = 'none';
+      }
+
+      filteredStories.forEach((story, idx) => {
+        const card = document.createElement('article');
+        card.className = 'story-card';
+        card.onclick = () => openReaderModal(idx);
+
+        card.innerHTML = `
+          <div>
+            <div class="card-top">
+              <span class="card-category">
+                <span>${story.icon}</span>
+                <span>${story.shelfLabel}</span>
+              </span>
+              <span class="card-badge">Bedtime Tale</span>
+            </div>
+            <h4 class="card-title">${story.title}</h4>
+            <div class="card-subtitle">${story.subtitle}</div>
+            <p class="card-preview">${story.preview}</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-moral">${story.moral.replace('Theme: ', '').replace('Moral: ', '')}</span>
+            <span class="card-action">Read Tale 🌙</span>
+          </div>
+        `;
+        storiesGrid.appendChild(card);
+      });
+    }
+
+    function switchShelf(shelf) {
+      currentShelf = shelf;
+
+      const shelfButtons = {
+        all: document.getElementById('shelfBtnAll'),
+        krishna: document.getElementById('shelfBtnKrishna'),
+        panchatantra: document.getElementById('shelfBtnPanchatantra'),
+        ack: document.getElementById('shelfBtnAck'),
+        tenali: document.getElementById('shelfBtnTenali'),
+        birbal: document.getElementById('shelfBtnBirbal')
+      };
+
+      Object.values(shelfButtons).forEach(b => b && b.classList.remove('active'));
+      if (shelfButtons[shelf]) shelfButtons[shelf].classList.add('active');
+
+      if (shelf === 'all') {
+        shelfTitle.textContent = "The Entire Bedtime Collection";
+        shelfDesc.textContent = "All 35 cozy stories across Little Krishna, Panchatantra, Amar Chitra Katha, Tenali Raman, and Akbar & Birbal.";
+        shelfIcon.textContent = "📖";
+      } else if (shelf === 'krishna') {
+        shelfTitle.textContent = "Little Krishna Bedtime Leelas";
+        shelfDesc.textContent = "The animated childhood adventures of little Kanha from Green Gold Animation.";
+        shelfIcon.textContent = "🦚";
+      } else if (shelf === 'panchatantra') {
+        shelfTitle.textContent = "Panchatantra Animal Fables";
+        shelfDesc.textContent = "Clever rabbits, talking turtles, and loyal friends teaching life's sweetest wisdom.";
+        shelfIcon.textContent = "🐰";
+      } else if (shelf === 'ack') {
+        shelfTitle.textContent = "Amar Chitra Katha Bedtime Legends";
+        shelfDesc.textContent = "Brave heroes, fearless queens, and legendary epics celebrating Indian heritage.";
+        shelfIcon.textContent = "👑";
+      } else if (shelf === 'tenali') {
+        shelfTitle.textContent = "Tenali Raman Tales of Wit";
+        shelfDesc.textContent = "The clever court poet of Vijayanagara outsmarting thieves, kings, and greedy priests.";
+        shelfIcon.textContent = "🐘";
+      } else if (shelf === 'birbal') {
+        shelfTitle.textContent = "Akbar & Birbal Bedtime Classics";
+        shelfDesc.textContent = "Imperial justice, warm midnight khichdi, and timeless humor under the Agra stars.";
+        shelfIcon.textContent = "🕯️";
+      }
+
+      renderStories();
+    }
+
+    function handleSearch(val) {
+      searchQuery = val.trim();
+      renderStories();
+    }
+
+    function clearSearch() {
+      document.getElementById('storySearchInput').value = '';
+      searchQuery = '';
+      switchShelf('all');
+    }
+
+    /* =============================================================
+       MODAL CONTROLLERS & DEFENSIVE EVENT HANDLERS
+       ============================================================= */
+    const readerOverlay = document.getElementById('readerModalOverlay');
+    const letterOverlay = document.getElementById('letterModalOverlay');
+
+    function openReaderModal(idx) {
+      selectedStoryIndex = idx;
+      stopNarrator();
+
+      const story = filteredStories[idx];
+      if (!story) return;
+
+      document.getElementById('modalChapterTag').textContent = `${story.icon} ${story.shelfLabel}`;
+      document.getElementById('modalChapterTitle').textContent = story.title;
+      document.getElementById('modalChapterSubtitle').textContent = story.subtitle;
+      document.getElementById('modalChapterQuote').textContent = story.quote;
+      document.getElementById('modalChapterMoral').textContent = story.moral;
+
+      const bodyContainer = document.getElementById('modalChapterBody');
+      bodyContainer.innerHTML = '';
+      story.paragraphs.forEach(p => {
+        const pEl = document.createElement('p');
+        pEl.textContent = p;
+        bodyContainer.appendChild(pEl);
+      });
+
+      readerOverlay.style.display = 'flex';
+      setTimeout(() => readerOverlay.classList.add('active'), 10);
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeReaderModal() {
+      stopNarrator();
+      readerOverlay.classList.remove('active');
+      setTimeout(() => {
+        readerOverlay.style.display = 'none';
+      }, 300);
+      document.body.style.overflow = 'auto';
+    }
+
+    function openLetterModal() {
+      letterOverlay.style.display = 'flex';
+      setTimeout(() => letterOverlay.classList.add('active'), 10);
+      document.body.style.overflow = 'hidden';
+      triggerStardust();
+    }
+
+    function closeLetterModal() {
+      letterOverlay.classList.remove('active');
+      setTimeout(() => {
+        letterOverlay.style.display = 'none';
+      }, 300);
+      document.body.style.overflow = 'auto';
+    }
+
+    function handleOverlayClick(event, overlayId) {
+      if (event.target.id === overlayId) {
+        if (overlayId === 'readerModalOverlay') closeReaderModal();
+        if (overlayId === 'letterModalOverlay') closeLetterModal();
+      }
+    }
+
+    function stepStory(direction) {
+      stopNarrator();
+      const nextIdx = selectedStoryIndex + direction;
+      if (nextIdx >= 0 && nextIdx < filteredStories.length) {
+        openReaderModal(nextIdx);
+      }
+    }
+
+    /* =============================================================
+       BEDTIME VOICE NARRATOR (Web Speech API)
+       ============================================================= */
+    function toggleBedtimeNarrator() {
+      if (!('speechSynthesis' in window)) {
+        alert("Text-to-speech voice narration is not supported in this browser.");
+        return;
+      }
+
+      if (isSpeaking) {
+        stopNarrator();
+      } else {
+        startNarrator();
+      }
+    }
+
+    function startNarrator() {
+      const story = filteredStories[selectedStoryIndex];
+      if (!story) return;
+
+      window.speechSynthesis.cancel();
+      const text = `${story.title}. ${story.subtitle}. ${story.quote}. ${story.paragraphs.join(' ')}`;
+      const utterance = new SpeechSynthesisUtterance(text);
+      
+      utterance.rate = 0.88;
+      utterance.pitch = 1.05;
+
+      utterance.onstart = () => {
+        isSpeaking = true;
+        document.getElementById('ttsBtnIcon').textContent = '⏸️';
+        document.getElementById('ttsBtnLabel').textContent = 'Pause Story';
+      };
+
+      utterance.onend = () => stopNarrator();
+      utterance.onerror = () => stopNarrator();
+
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function stopNarrator() {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      }
+      isSpeaking = false;
+      document.getElementById('ttsBtnIcon').textContent = '🔊';
+      document.getElementById('ttsBtnLabel').textContent = 'Read To Me';
+    }
+
+    /* =============================================================
+       INTERACTIVE WISHING STAR & CONFETTI FOR BANGARAM
+       ============================================================= */
+    let hasWished = false;
+    function makeBedtimeWish() {
+      if (!hasWished) {
+        hasWished = true;
+        document.getElementById('interactiveStar').textContent = '🌟';
+        const status = document.getElementById('interactiveStarText');
+        status.textContent = 'Wish Made! Goodnight Bangaram, may every sweet dream come true tonight 💛';
+        status.style.color = '#FBBF24';
+        status.style.fontWeight = '700';
+        triggerStardust();
+      }
+    }
+
+    function triggerStardust() {
+      if (typeof confetti === 'function') {
+        confetti({
+          particleCount: 85,
+          spread: 75,
+          origin: { y: 0.6 },
+          colors: ['#FBBF24', '#F59E0B', '#FEF3C7', '#FB7185', '#38BDF8']
+        });
+      }
+    }
+
+    /* =============================================================
+       SYNTHESIZED FLUTE LULLABY (Web Audio API)
+       ============================================================= */
+    let audioCtx = null;
+    let isLullabyPlaying = false;
+    let lullabyInterval = null;
+
+    function getAudioCtx() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    function playSoftNote(freq, duration = 2.4) {
+      try {
+        const ctx = getAudioCtx();
+        const now = ctx.currentTime;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, now);
+
+        gain.gain.setValueAtTime(0.001, now);
+        gain.gain.exponentialRampToValueAtTime(0.12, now + 0.4);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + duration);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start(now);
+        osc.stop(now + duration);
+      } catch (e) {}
+    }
+
+    function playRagaChime() {
+      const notes = [440, 495, 550, 660, 733, 880];
+      const note = notes[Math.floor(Math.random() * notes.length)];
+      playSoftNote(note, 2.2);
+    }
+
+    function toggleBedtimeLullaby() {
+      const label = document.getElementById('lullabyLabel');
+      const icon = document.getElementById('lullabyIcon');
+
+      if (isLullabyPlaying) {
+        clearInterval(lullabyInterval);
+        isLullabyPlaying = false;
+        label.textContent = "Flute Lullaby";
+        icon.textContent = "🪈";
+      } else {
+        isLullabyPlaying = true;
+        label.textContent = "Playing...";
+        icon.textContent = "🎶";
+        playRagaChime();
+        lullabyInterval = setInterval(() => {
+          if (isLullabyPlaying) playRagaChime();
+        }, 4000);
+      }
+    }
+
+    /* =============================================================
+       TWINKLING NIGHT SKY & FIREFLIES CANVAS
+       ============================================================= */
+    const canvas = document.getElementById('nightSkyCanvas');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+    let fireflies = [];
+
+    function resizeSky() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      stars = [];
+      const count = Math.floor((canvas.width * canvas.height) / 5500);
+      for (let i = 0; i < count; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 1.5 + 0.4,
+          alpha: Math.random(),
+          speed: Math.random() * 0.02 + 0.005
+        });
+      }
+
+      fireflies = [];
+      for (let i = 0; i < 24; i++) {
+        fireflies.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          size: Math.random() * 2.2 + 1.2,
+          speedX: Math.random() * 0.5 - 0.25,
+          speedY: Math.random() * 0.5 - 0.25
+        });
+      }
+    }
+    window.addEventListener('resize', resizeSky);
+
+    function loopSky() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Stars
+      stars.forEach(s => {
+        s.alpha += s.speed;
+        if (s.alpha > 1 || s.alpha < 0.2) s.speed = -s.speed;
+        ctx.fillStyle = `rgba(254, 243, 199, ${s.alpha})`;
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      // Fireflies
+      fireflies.forEach(f => {
+        f.x += f.speedX;
+        f.y += f.speedY;
+        if (f.x < 0) f.x = canvas.width;
+        if (f.x > canvas.width) f.x = 0;
+        if (f.y < 0) f.y = canvas.height;
+        if (f.y > canvas.height) f.y = 0;
+
+        ctx.fillStyle = 'rgba(251, 191, 36, 0.65)';
+        ctx.beginPath();
+        ctx.arc(f.x, f.y, f.size, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      requestAnimationFrame(loopSky);
+    }
+
+    // Initialize application
+    resizeSky();
+    loopSky();
+    updateCounters();
+    renderStories();
+  </script>
+</body>
+</html>
