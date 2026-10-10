@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,6 +63,17 @@
       height: 100vh;
       pointer-events: none;
       z-index: 0;
+    }
+
+    /* Shooting Star Canvas (Glides above both background & story reader modal) */
+    #shootingStarCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 1050;
     }
 
     .relative-container {
@@ -852,6 +863,8 @@
 
   <!-- Ambient Twinkling Canvas -->
   <canvas id="nightSkyCanvas"></canvas>
+  <!-- Shooting Star Canvas (Visible everywhere including reader modal) -->
+  <canvas id="shootingStarCanvas"></canvas>
 
   <div class="relative-container">
     
@@ -1030,19 +1043,77 @@
       <h3 class="letter-title">Happy Birthday, Bangaram 💛</h3>
 
       <div class="letter-parchment">
-        <div class="letter-greeting">My Sweetest Bangaram,</div>
-        <p>
-          Whenever you talk about falling asleep to cartoons or rushing home to watch 
-          <strong style="color: var(--gold-primary);">Little Krishna</strong>, you have the exact same childlike twinkle in your eyes that made me fall completely in love with you.
+        <p style="font-family: var(--font-hand); font-size: 24px; color: var(--gold-primary); font-weight: 700; line-height: 1.4;">
+          Happy happy birthday to the best person in the whole wide world, my bangaram 💗
         </p>
         <p>
-          I made this midnight storybook treasury just for you, my precious Bangaram—bringing together Kanha's mischievous butter adventures, the clever animal fables of the Panchatantra, the brave legends of Amar Chitra Katha, and the timeless bedtime wit of Tenali Raman, Akbar, and Birbal.
+          I made this little thing for you so that we never have to worry about running out of stories at night, whether I’m the one asking you to tell me something or you’re the one who wants to hear a story 😭. Now we’ll always have something waiting for us, no matter how late it is or how many times one of us says “just one more.”
         </p>
         <p>
-          You bring the exact same warmth, pure magic, and sweetness into my world every single day.
+          I picked stories from <strong style="color: var(--gold-primary);">little Krishna</strong>, <strong style="color: var(--gold-primary);">Akbar and Birbal</strong>, <strong style="color: var(--gold-primary);">Tenali Raman</strong>, <strong style="color: var(--gold-primary);">Amar Chitra Katha</strong>, and <strong style="color: var(--gold-primary);">Panchatantra</strong> because these aren’t just random stories to me. They’re a little piece of my childhood. My mom used to buy me books with these stories when I was growing up, and I remember reading them again and again. They remind me of being a kid, of simpler times, and of some really happy memories that I still carry with me.
         </p>
-        <p style="font-family: var(--font-hand); font-size: 22px; color: var(--bangaram-rose); text-align: center; margin-top: 6px;">
-          Goodnight Bangaram. May your year ahead be as gentle, bright, and blessed as moonlit lotus groves. Sweet dreams, my gold! ✨
+        <p>
+          And of course I especially wanted to include <strong style="color: var(--gold-primary);">little Krishna</strong> because I know how much you love him. That made this feel even more special to me, because it became a mix of something that meant a lot to me growing up and something that you already love so much. I really like the idea that something from my childhood can now become something that belongs to us too.
+        </p>
+        <p>
+          I think that’s probably my favorite part about this gift. I’m not just giving you a bunch of stories. I’m giving you a little piece of where I came from, and I get to share it with the person who means the most to me now.
+        </p>
+        <p>
+          Maybe some of these become our favorite stories. Maybe you make me read the same little Krishna story ten times. Maybe we argue about which Akbar and Birbal story is the best. Maybe years from now one of these reminds us of some random night when we were half asleep on call and neither of us wanted to hang up. I think I’d love that.
+        </p>
+        <p>
+          I know this is a small thing, but I wanted to make you something that wasn’t just for your birthday and then forgotten. I wanted it to be something we could actually keep coming back to. On nights when one of us can’t sleep, when we’ve had a bad day, when we miss each other, when we’re bored, or when we just want to hear the other person’s voice for a little longer, we’ll always have a story waiting for us.
+        </p>
+        <p>
+          You’ve become such a huge part of my life that I genuinely can’t imagine my days without you anymore. You’re the person I want to tell everything to first. The stupid things, the exciting things, the random things that don’t even matter, the things that upset me, the things I’m proud of, the things I’m scared of. Somehow everything feels more worth sharing because I get to share it with you.
+        </p>
+        <p>
+          You make me feel loved, safe, understood and cared for in a way that means more to me than I can properly explain. I love that I can be completely myself around you. I can be annoying, dramatic, stupid, emotional, happy, stressed, quiet, clingy, everything, and somehow I still feel like I’m exactly where I’m supposed to be.
+        </p>
+        <p>
+          You’re my favorite person to talk to, my favorite person to annoy, my favorite person to miss and my favorite person to come back to. You make normal days better just by being in them. Your texts make me smile like an idiot, hearing your voice changes my mood, and somehow even doing absolutely nothing with you feels special to me.
+        </p>
+        <p>
+          I love all the little things about you too. The things you probably don’t even realize I notice. The way you care. The way you love. Your soft side. Your stubborn side. Your dramatic side 😭. The way you make me laugh. The way you make me calm down. The way you somehow make me feel at home even when we’re nowhere near home.
+        </p>
+        <p>
+          And I hope you know that I never take any of that for granted.
+        </p>
+        <p>
+          I want to be there for every version of you. I want to see you achieve all the things you dream about. I want to be there clapping the loudest when everything goes right and holding you when things don’t. I want to know the person you are now, the person you’re becoming, and every version of you after that.
+        </p>
+        <p>
+          I want all of it. The big moments, the random nights, the trips, the stupid arguments we’ll laugh about later, the milestones, the celebrations, the hard conversations, the ordinary days, and all the tiny memories in between that end up meaning the most.
+        </p>
+        <p>
+          I don’t just love the perfect parts of us. I love that even when we misunderstand each other or things get difficult, I still want us. I’d rather figure things out with you than imagine a life where you become someone I used to know. What we have means too much to me for that.
+        </p>
+        <p>
+          You’re not just someone I love. You’re someone I choose, and I want to keep choosing you again and again.
+        </p>
+        <p>
+          And maybe one day, years from now, we’ll be lying next to each other arguing over whose turn it is to tell the bedtime story, and I’ll open this exact collection and tell you one of the same stories I made for you now.
+        </p>
+        <p>
+          I think that would be a pretty perfect life.
+        </p>
+        <p style="font-family: var(--font-hand); font-size: 22px; color: var(--gold-primary); font-weight: 700;">
+          Happy birthday, my bangaram.
+        </p>
+        <p>
+          Thank you for being my comfort, my safe place, my favorite person, and genuinely one of the best things that has ever happened to me. Thank you for loving me the way you do and for letting me love you too.
+        </p>
+        <p>
+          It would genuinely be my honor to have the privilege of spending my life with you.
+        </p>
+        <p>
+          I love you more than I know how to put into words, and somehow I still feel like I love you a little more every single day.
+        </p>
+        <p>
+          In every version of my life, every single time, I would still choose you.
+        </p>
+        <p style="font-family: var(--font-hand); font-size: 23px; color: var(--bangaram-rose); text-align: center; margin-top: 10px; font-weight: 700;">
+          Happy birthday, my everything. 💗😘
         </p>
       </div>
 
@@ -1059,7 +1130,7 @@
         </div>
       </div>
 
-      <button class="btn-birthday" onclick="triggerStardust()" style="width: 100%; justify-content: center; font-size: 20px;">
+      <button id="stardustBtn" class="btn-birthday" onclick="triggerStardust()" style="width: 100%; justify-content: center; font-size: 20px;">
         ✨ Shower Golden Stardust for Bangaram
       </button>
     </div>
@@ -1828,6 +1899,7 @@
     function openReaderModal(idx) {
       selectedStoryIndex = idx;
       stopNarrator();
+      triggerShootingStar();
 
       const story = filteredStories[idx];
       if (!story) return;
@@ -1886,6 +1958,7 @@
       stopNarrator();
       const nextIdx = selectedStoryIndex + direction;
       if (nextIdx >= 0 && nextIdx < filteredStories.length) {
+        triggerShootingStar();
         openReaderModal(nextIdx);
       }
     }
@@ -1954,13 +2027,93 @@
       }
     }
 
+    class StardustSparkle {
+      constructor(originX, originY) {
+        this.x = originX !== undefined ? originX : (window.innerWidth / 2) + (Math.random() * 260 - 130);
+        this.y = originY !== undefined ? originY : (window.innerHeight * 0.45) + (Math.random() * 160 - 80);
+        const angle = Math.random() * Math.PI * 2;
+        const speed = Math.random() * 8 + 3;
+        this.vx = Math.cos(angle) * speed;
+        this.vy = Math.sin(angle) * speed - 2.5;
+        this.gravity = 0.16;
+        this.size = Math.random() * 4 + 2;
+        this.alpha = 1;
+        this.decay = Math.random() * 0.018 + 0.012;
+        const colors = ['#FBBF24', '#F59E0B', '#FEF3C7', '#FB7185', '#38BDF8', '#FFFFFF'];
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+        this.isStar = Math.random() > 0.35;
+      }
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.vy += this.gravity;
+        this.vx *= 0.98;
+        this.alpha -= this.decay;
+      }
+      draw(ctx) {
+        if (this.alpha <= 0) return;
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, this.alpha);
+        ctx.fillStyle = this.color;
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = this.color;
+        ctx.beginPath();
+        if (this.isStar) {
+          const s = this.size * 1.6;
+          ctx.moveTo(this.x, this.y - s);
+          ctx.quadraticCurveTo(this.x, this.y, this.x + s, this.y);
+          ctx.quadraticCurveTo(this.x, this.y, this.x, this.y + s);
+          ctx.quadraticCurveTo(this.x, this.y, this.x - s, this.y);
+          ctx.quadraticCurveTo(this.x, this.y, this.x, this.y - s);
+        } else {
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        }
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    let customStardustBursts = [];
+
+    function burstStardustOverScreen() {
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight * 0.45;
+      for (let i = 0; i < 90; i++) {
+        customStardustBursts.push(new StardustSparkle(centerX, centerY));
+      }
+    }
+
     function triggerStardust() {
+      // 1. Audio chimes
+      playSoftNote(880, 1.2);
+      setTimeout(() => playSoftNote(1100, 1.4), 160);
+      setTimeout(() => playSoftNote(1320, 1.8), 320);
+
+      // 2. Spawn 2 shooting stars across the sky
+      triggerShootingStar();
+      setTimeout(() => triggerShootingStar(), 300);
+
+      // 3. Custom canvas stardust burst (works 100% offline & over modal at z-index 1050)
+      burstStardustOverScreen();
+
+      // 4. Button feedback animation
+      const btn = document.getElementById('stardustBtn');
+      if (btn) {
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '✨ Stardust Showered for Bangaram! 💛';
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+        }, 1800);
+      }
+
+      // 5. External canvas-confetti with explicit high zIndex (renders over z-index 1000 modal)
       if (typeof confetti === 'function') {
         confetti({
-          particleCount: 85,
-          spread: 75,
-          origin: { y: 0.6 },
-          colors: ['#FBBF24', '#F59E0B', '#FEF3C7', '#FB7185', '#38BDF8']
+          particleCount: 110,
+          spread: 85,
+          origin: { y: 0.55 },
+          zIndex: 9999,
+          colors: ['#FBBF24', '#F59E0B', '#FEF3C7', '#FB7185', '#38BDF8', '#FFFFFF']
         });
       }
     }
@@ -2038,9 +2191,20 @@
     let stars = [];
     let fireflies = [];
 
+    /* =============================================================
+       SHOOTING STARS ENGINE (Background & Inside Story Reader)
+       ============================================================= */
+    const shootCanvas = document.getElementById('shootingStarCanvas');
+    const sCtx = shootCanvas.getContext('2d');
+    let shootingStars = [];
+    let stardustParticles = [];
+
     function resizeSky() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      shootCanvas.width = window.innerWidth;
+      shootCanvas.height = window.innerHeight;
+
       stars = [];
       const count = Math.floor((canvas.width * canvas.height) / 5500);
       for (let i = 0; i < count; i++) {
@@ -2066,10 +2230,97 @@
     }
     window.addEventListener('resize', resizeSky);
 
+    class ShootingStar {
+      constructor(customStartX, customStartY) {
+        // Start near the top or left quadrant
+        this.x = customStartX !== undefined ? customStartX : Math.random() * (shootCanvas.width * 0.85);
+        this.y = customStartY !== undefined ? customStartY : Math.random() * (shootCanvas.height * 0.35);
+        this.length = Math.random() * 120 + 90;
+        this.speed = Math.random() * 10 + 12;
+        // Trajectory angle (gentle diagonal down-right)
+        this.angle = (Math.PI / 180) * (Math.random() * 20 + 32);
+        this.dx = Math.cos(this.angle) * this.speed;
+        this.dy = Math.sin(this.angle) * this.speed;
+        this.life = 0;
+        this.maxLife = Math.random() * 40 + 45;
+        this.opacity = 1;
+        this.color = Math.random() > 0.3 ? '#FDE68A' : '#7DD3FC';
+      }
+
+      update() {
+        this.x += this.dx;
+        this.y += this.dy;
+        this.life++;
+
+        // Spawn trailing stardust sparkles
+        if (Math.random() > 0.35) {
+          stardustParticles.push({
+            x: this.x - (Math.cos(this.angle) * (this.length * 0.2)) + (Math.random() * 6 - 3),
+            y: this.y - (Math.sin(this.angle) * (this.length * 0.2)) + (Math.random() * 6 - 3),
+            size: Math.random() * 2 + 1,
+            alpha: 0.9,
+            color: this.color
+          });
+        }
+
+        if (this.life > this.maxLife * 0.6) {
+          this.opacity -= 1 / (this.maxLife * 0.4);
+        }
+      }
+
+      draw() {
+        if (this.opacity <= 0) return;
+        sCtx.save();
+        sCtx.globalAlpha = Math.max(0, this.opacity);
+
+        const tailX = this.x - Math.cos(this.angle) * this.length;
+        const tailY = this.y - Math.sin(this.angle) * this.length;
+
+        const grad = sCtx.createLinearGradient(tailX, tailY, this.x, this.y);
+        grad.addColorStop(0, 'rgba(251, 191, 36, 0)');
+        grad.addColorStop(0.5, this.color);
+        grad.addColorStop(1, '#FFFDF8');
+
+        sCtx.strokeStyle = grad;
+        sCtx.lineWidth = 2.4;
+        sCtx.lineCap = 'round';
+        sCtx.shadowBlur = 12;
+        sCtx.shadowColor = this.color;
+
+        sCtx.beginPath();
+        sCtx.moveTo(tailX, tailY);
+        sCtx.lineTo(this.x, this.y);
+        sCtx.stroke();
+
+        // Glowing Starhead
+        sCtx.fillStyle = '#FFFDF8';
+        sCtx.beginPath();
+        sCtx.arc(this.x, this.y, 2.2, 0, Math.PI * 2);
+        sCtx.fill();
+
+        sCtx.restore();
+      }
+    }
+
+    function triggerShootingStar(x, y) {
+      shootingStars.push(new ShootingStar(x, y));
+    }
+
+    // Schedule natural periodic shooting stars every 4 to 7 seconds
+    function scheduleShootingStar() {
+      const delay = Math.random() * 3500 + 4000;
+      setTimeout(() => {
+        triggerShootingStar();
+        scheduleShootingStar();
+      }, delay);
+    }
+    scheduleShootingStar();
+
     function loopSky() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      sCtx.clearRect(0, 0, shootCanvas.width, shootCanvas.height);
 
-      // Stars
+      // 1. Ambient Background Stars
       stars.forEach(s => {
         s.alpha += s.speed;
         if (s.alpha > 1 || s.alpha < 0.2) s.speed = -s.speed;
@@ -2079,7 +2330,7 @@
         ctx.fill();
       });
 
-      // Fireflies
+      // 2. Ambient Fireflies
       fireflies.forEach(f => {
         f.x += f.speedX;
         f.y += f.speedY;
@@ -2093,6 +2344,45 @@
         ctx.arc(f.x, f.y, f.size, 0, Math.PI * 2);
         ctx.fill();
       });
+
+      // 3. Stardust particles from shooting stars
+      for (let i = stardustParticles.length - 1; i >= 0; i--) {
+        const p = stardustParticles[i];
+        p.alpha -= 0.035;
+        if (p.alpha <= 0) {
+          stardustParticles.splice(i, 1);
+          continue;
+        }
+        sCtx.save();
+        sCtx.globalAlpha = p.alpha;
+        sCtx.fillStyle = p.color;
+        sCtx.shadowBlur = 6;
+        sCtx.shadowColor = p.color;
+        sCtx.beginPath();
+        sCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        sCtx.fill();
+        sCtx.restore();
+      }
+
+      // 3b. Custom Stardust Explosion Particles (Triggered by button & wishes)
+      for (let i = customStardustBursts.length - 1; i >= 0; i--) {
+        const sparkle = customStardustBursts[i];
+        sparkle.update();
+        sparkle.draw(sCtx);
+        if (sparkle.alpha <= 0) {
+          customStardustBursts.splice(i, 1);
+        }
+      }
+
+      // 4. Shooting Stars
+      for (let i = shootingStars.length - 1; i >= 0; i--) {
+        const star = shootingStars[i];
+        star.update();
+        star.draw();
+        if (star.life >= star.maxLife || star.opacity <= 0) {
+          shootingStars.splice(i, 1);
+        }
+      }
 
       requestAnimationFrame(loopSky);
     }
